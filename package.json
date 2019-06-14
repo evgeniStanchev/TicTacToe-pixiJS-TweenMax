@@ -6,14 +6,16 @@
     "scripts": {
         "liveServer": "npx live-server ./dist",
         "copy-assets": "npx del-cli ./dist/assets && npx cpy ./assets/** ./dist/ --parents",
-        "tscWatcher": "npx watchify --debug -p tsify -t [ babelify --extensions .ts] ./src/main.ts -o ./dist/index.js",
+        "tscWatcher": "npx watchify --debug -p tsify -t [ babelify --extensions .ts] src/Main.ts -o ./dist/index.js",
         "uglify": "uglifyjs --output ./dist/index.js  --compress --mangle -- ./dist/index.js",
         "watch": "npm run copy-assets && npx npm-run-all -p tscWatcher liveServer",
-        "build": "npm run copy-assets && npx browserify ./src/main.ts -p tsify -t [ babelify --extensions .ts] > ./dist/index.js && npm run uglify"
+        "build": "npm run copy-assets && npx browserify src/Main.ts -p tsify -t [ babelify --extensions .ts] > ./dist/index.js && npm run uglify"
     },
     "author": "",
     "license": "ISC",
     "dependencies": {
+        "@types/gsap": "^1.20.2",
+        "gsap": "^2.1.3",
         "pixi.js": "^5.0.3"
     },
     "browserslist": "> 0.25%, not dead",
