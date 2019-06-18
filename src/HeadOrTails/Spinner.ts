@@ -34,7 +34,7 @@ export default class Spinner {
         this.head = head;
         this.bitmapNamePlayer1 = bitmapNamePlayer1;
         this.bitmapNamePlayer2 = bitmapNamePlayer2;
-        this.winnerAnnouncer = new WinnerAnnouncer(app, this.coin, firstPlayer, this.bitmapNamePlayer1, this.bitmapNamePlayer2);
+        this.winnerAnnouncer = new WinnerAnnouncer(app, containerHOT, this.coin, firstPlayer, this.bitmapNamePlayer1, this.bitmapNamePlayer2);
     }
 
     public spin() {

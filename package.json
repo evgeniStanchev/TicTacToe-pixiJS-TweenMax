@@ -6,7 +6,7 @@
     "scripts": {
         "liveServer": "npx live-server ./dist",
         "copy-assets": "npx del-cli ./dist/assets && npx cpy ./assets/** ./dist/ --parents",
-        "tscWatcher": "npx watchify --debug -p tsify -t [ babelify --extensions .ts] src/Main.ts -o ./dist/index.js",
+        "tscWatcher": "npx watchify  src/Main.ts -p tsify -t [ babelify --extensions .ts] -o ./dist/index.js --debug",
         "uglify": "uglifyjs --output ./dist/index.js  --compress --mangle -- ./dist/index.js",
         "watch": "npm run copy-assets && npx npm-run-all -p tscWatcher liveServer",
         "build": "npm run copy-assets && npx browserify src/Main.ts -p tsify -t [ babelify --extensions .ts] > ./dist/index.js && npm run uglify"

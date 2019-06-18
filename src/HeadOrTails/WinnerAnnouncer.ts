@@ -12,9 +12,11 @@ export default class WinnerAnnouncer {
     private bitmapNamePlayer2: PIXI.BitmapText;
     private firstPlayer: PIXI.BitmapText;
     private app: PIXI.Application;
+    private container: PIXI.Container;
 
-    constructor(app: PIXI.Application, coin: PIXI.Sprite, firstPlayer: PIXI.BitmapText, bitmapNamePlayer1: PIXI.BitmapText, bitmapNamePlayer2: PIXI.BitmapText) {
+    constructor(app: PIXI.Application, container: PIXI.Container, coin: PIXI.Sprite, firstPlayer: PIXI.BitmapText, bitmapNamePlayer1: PIXI.BitmapText, bitmapNamePlayer2: PIXI.BitmapText) {
         this.app = app;
+        this.container = container;
         this.bitmapNamePlayer1 = bitmapNamePlayer1;
         this.bitmapNamePlayer2 = bitmapNamePlayer2;
         this.firstPlayer = firstPlayer;
@@ -22,7 +24,7 @@ export default class WinnerAnnouncer {
         this.winner = new PIXI.Sprite();
     }
 
-    setWinnerName(name: string) {
+    public setWinnerName(name: string) {
         this.winnerName.text = name;
     }
 
@@ -53,7 +55,7 @@ export default class WinnerAnnouncer {
     }
 
     private startGame() {
-        this.app.stage.removeChildren();
+        this.app.stage.removeChild(this.container);
         new GamePlay(this.winnerName.text, this.looserName);
     }
 
