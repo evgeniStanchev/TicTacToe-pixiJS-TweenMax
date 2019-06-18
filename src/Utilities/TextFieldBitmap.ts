@@ -1,6 +1,6 @@
 import * as PIXI from "pixi.js";
 
-export default class BitmapTextField extends PIXI.BitmapText {
+export default class TextFieldBitmap extends PIXI.BitmapText {
     constructor(text: string, px: number, textAlign: string, x: number, y: number) {
         super(text, {
             font: {

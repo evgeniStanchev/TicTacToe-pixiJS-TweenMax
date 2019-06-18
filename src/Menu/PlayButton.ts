@@ -8,7 +8,7 @@ export default class PlayButton extends PIXI.Sprite {
     public static readonly BUTTON_PATH = `assets/playButton.png`;
     private readonly app: PIXI.Application;
     readonly gameMenu: GameMenu;
-    private readonly mainContainer: PIXI.Container;
+    private readonly containerMainMenu: PIXI.Container;
     private namePlayer1: string;
     private namePlayer2: string;
 
@@ -16,7 +16,7 @@ export default class PlayButton extends PIXI.Sprite {
         super();
         this.app = gameMenu.app;
         this.gameMenu = gameMenu;
-        this.mainContainer = this.gameMenu.mainContainer;
+        this.containerMainMenu = this.gameMenu.containerMainMenu;
         this.texture = PIXI.Texture.from(PlayButton.BUTTON_PATH);
         this.x = this.app.screen.width / 2;
         this.y = this.app.screen.height / 1.15;
@@ -37,7 +37,8 @@ export default class PlayButton extends PIXI.Sprite {
                 if (this.isWrongInput()) {
                     return;
                 }
-                this.removeMainMenu();
+                this.containerMainMenu.removeChildren();
+                this.app.stage.removeChild(this.containerMainMenu);
                 this.startHeadOrTails();
             }
         );
@@ -45,29 +46,21 @@ export default class PlayButton extends PIXI.Sprite {
 
     private isWrongInput() {
         if (this.namePlayer1 === "" || this.namePlayer2 === "") {
-            this.mainContainer.addChild(this.gameMenu.errorEmptyInputText);
+            this.containerMainMenu.addChild(this.gameMenu.errorEmptyInputText);
             return true;
         } else if (this.namePlayer1 === this.namePlayer2) {
-            this.mainContainer.addChild(this.gameMenu.errorEqualNamesText);
+            this.containerMainMenu.addChild(this.gameMenu.errorEqualNamesText);
             return true;
         } else if (this.namePlayer1.length > 10 || this.namePlayer2.length > 10) {
-            this.mainContainer.addChild(this.gameMenu.errorBiggerLengthText);
+            this.containerMainMenu.addChild(this.gameMenu.errorBiggerLengthText);
             return true;
         }
         return false;
     }
 
     private startHeadOrTails() {
-        new HeadOrTails(this.app, this.namePlayer1, this.namePlayer2);
+        const headOrTails = new HeadOrTails(this.app, this.namePlayer1, this.namePlayer2);
+        headOrTails.start();
     }
 
-    private removeMainMenu() {
-        this.mainContainer.removeChild(this);
-        this.mainContainer.removeChild(this.gameMenu.background);
-        this.mainContainer.removeChild(this.gameMenu.titleText);
-        this.mainContainer.removeChild(this.gameMenu.textPlayer1);
-        this.mainContainer.removeChild(this.gameMenu.textPlayer2);
-        this.mainContainer.removeChild(this.gameMenu.textInputPlayer1);
-        this.mainContainer.removeChild(this.gameMenu.textInputPlayer2);
-    }
 }
