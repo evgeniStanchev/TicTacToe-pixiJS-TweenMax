@@ -8,9 +8,9 @@ import MyTextInput from "../Utilities/TextInput";
 export default class GameMenu extends PIXI.DisplayObject {
     private readonly PATH_BITMAP_FONT: string = `assets/bitmap-font/`;
     private readonly playButton: PlayButton;
-
     private readonly _containerMainMenu: PIXI.Container;
     private readonly _app: PIXI.Application;
+
     private _inputPlayer1: TextInput;
     private _inputPlayer2: TextInput;
     private _background: PIXI.Sprite;
@@ -51,20 +51,8 @@ export default class GameMenu extends PIXI.DisplayObject {
         return this._errorBiggerLengthText;
     }
 
-    get titleText(): PIXI.BitmapText {
-        return this._titleText;
-    }
-
     get containerMainMenu(): PIXI.Container {
         return this._containerMainMenu;
-    }
-
-    get textPlayer1(): PIXI.BitmapText {
-        return this._textPlayer1;
-    }
-
-    get textPlayer2(): PIXI.BitmapText {
-        return this._textPlayer2;
     }
 
     get background(): PIXI.Sprite {

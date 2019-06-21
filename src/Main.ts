@@ -1,6 +1,7 @@
 import * as PIXI from "pixi.js";
+import Gameplay from "./Game/Gameplay";
 import GameMenu from "./Menu/GameMenu";
-import GamePlay from "./Game/GamePlay";
+
 
 export default class Main {
     private static readonly GAME_WIDTH: number = 800;
@@ -24,13 +25,14 @@ export default class Main {
     private onAssetsLoaded(): void {
         this.createRenderer();
         // new GameMenu(this.app);
-        new GamePlay("Evgeni", "Diana");
+        new Gameplay(this.app, "Player1", "Player2");
     }
 
     private createRenderer(): void {
         this.app = new PIXI.Application({
             width: Main.GAME_WIDTH,
-            height: Main.GAME_HEIGHT
+            height: Main.GAME_HEIGHT,
+            antialias: true
         });
         document.body.appendChild(this.app.view);
     }

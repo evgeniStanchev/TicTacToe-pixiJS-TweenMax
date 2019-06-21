@@ -1,6 +1,6 @@
 import * as PIXI from "pixi.js";
 import {TweenMax} from "gsap";
-import GamePlay from "../Game/GamePlay";
+import Gameplay from "../Game/Gameplay";
 
 export default class WinnerAnnouncer {
 
@@ -11,8 +11,8 @@ export default class WinnerAnnouncer {
     private bitmapNamePlayer1: PIXI.BitmapText;
     private bitmapNamePlayer2: PIXI.BitmapText;
     private firstPlayer: PIXI.BitmapText;
-    private app: PIXI.Application;
-    private container: PIXI.Container;
+    private readonly app: PIXI.Application;
+    private readonly container: PIXI.Container;
 
     constructor(app: PIXI.Application, container: PIXI.Container, coin: PIXI.Sprite, firstPlayer: PIXI.BitmapText, bitmapNamePlayer1: PIXI.BitmapText, bitmapNamePlayer2: PIXI.BitmapText) {
         this.app = app;
@@ -51,12 +51,11 @@ export default class WinnerAnnouncer {
     private showFirstPlayer() {
         this.firstPlayer.width = 300
         this.firstPlayer.height = 150;
-
     }
 
     private startGame() {
         this.app.stage.removeChild(this.container);
-        new GamePlay(this.winnerName.text, this.looserName);
+        new Gameplay(this.app, this.winnerName.text, this.looserName);
     }
 
     private moveName() {
