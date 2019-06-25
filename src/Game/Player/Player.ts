@@ -1,5 +1,4 @@
 export default class Player {
-
     private readonly _name: string;
     private readonly sign: string;
 
@@ -14,5 +13,4 @@ export default class Player {
     get name(): string {
         return this._name;
     }
-
 }

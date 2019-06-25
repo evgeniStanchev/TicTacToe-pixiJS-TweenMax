@@ -32,7 +32,7 @@ export default class GameMenu extends PIXI.DisplayObject {
     };
 
     private createBackground() {
-        this._background = PIXI.Sprite.from('assets/tictactoe-background.jpg');
+        this._background = PIXI.Sprite.from('background');
         this._background.anchor.set(0.5);
         this._background.x = this._app.screen.width / 2;
         this._background.y = this._app.screen.height / 2;

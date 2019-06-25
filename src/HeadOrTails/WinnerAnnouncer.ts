@@ -1,6 +1,6 @@
 import * as PIXI from "pixi.js";
 import {TweenMax} from "gsap";
-import Gameplay from "../Game/Gameplay";
+import Gameplay from "../Game/Gameplay/Gameplay";
 
 export default class WinnerAnnouncer {
 

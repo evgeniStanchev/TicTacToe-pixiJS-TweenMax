@@ -5,7 +5,6 @@ import HeadOrTails from "../HeadOrTails/HeadOrTails";
 
 export default class PlayButton extends PIXI.Sprite {
 
-    public static readonly BUTTON_PATH = `assets/playButton.png`;
     private readonly app: PIXI.Application;
     readonly gameMenu: GameMenu;
     private readonly containerMainMenu: PIXI.Container;
@@ -17,7 +16,7 @@ export default class PlayButton extends PIXI.Sprite {
         this.app = gameMenu.app;
         this.gameMenu = gameMenu;
         this.containerMainMenu = this.gameMenu.containerMainMenu;
-        this.texture = PIXI.Texture.from(PlayButton.BUTTON_PATH);
+        this.texture = PIXI.Texture.from("playButton");
         this.x = this.app.screen.width / 2;
         this.y = this.app.screen.height / 1.15;
         this.anchor.set(0.5);
