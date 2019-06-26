@@ -5,88 +5,88 @@ import { TweenMax } from "gsap";
 import LinesDrawer from "../GameIntro/Lines/LinesDrawer";
 
 export default class Gameplay {
-    private readonly PATH_BITMAP_FONT: string = `assets/bitmap-font/`;
-    private readonly LINE_WIDTH: number = 4;
+    private readonly _PATH_BITMAP_FONT: string = `assets/bitmap-font/`;
+    private readonly _LINE_WIDTH: number = 4;
 
-    private readonly containerGame: PIXI.Container;
-    private readonly containerBoard: PIXI.Container;
-    private readonly linesDrawer: LinesDrawer;
-    private readonly whiteSprite: PIXI.Sprite;
+    private readonly _containerGame: PIXI.Container;
+    private readonly _containerBoard: PIXI.Container;
+    private readonly _linesDrawer: LinesDrawer;
+    private readonly _whiteSprite: PIXI.Sprite;
 
-    private xRectangle: number = 190;
-    private yRectangle: number = 125;
-    private widthRectangle: number = 420;
-    private heightRectangle: number = 420;
-    private app: PIXI.Application;
-    private player1: Player;
-    private player2: Player;
-    private nameBitmapPlayer1: PIXI.BitmapText;
-    private nameBitmapPlayer2: PIXI.BitmapText;
+    private _xRectangle: number = 190;
+    private _yRectangle: number = 125;
+    private _widthRectangle: number = 420;
+    private _heightRectangle: number = 420;
+    private _app: PIXI.Application;
+    private _player1: Player;
+    private _player2: Player;
+    private _nameBitmapPlayer1: PIXI.BitmapText;
+    private _nameBitmapPlayer2: PIXI.BitmapText;
 
     constructor(app: PIXI.Application, namePlayer1: string, namePlayer2: string) {
         this.loadBitmap();
         this.createPlayers(namePlayer1, namePlayer2);
-        this.app = app;
-        this.app.stage.interactive = true;
+        this._app = app;
+        this._app.stage.interactive = true;
 
-        this.containerGame = new PIXI.Container();
+        this._containerGame = new PIXI.Container();
         this.setupContainerGame();
 
-        this.containerBoard = new PIXI.Container();
+        this._containerBoard = new PIXI.Container();
         this.setupContainerBoard();
 
         //TODO Draw the texture with graphics
-        this.whiteSprite = new PIXI.Sprite(PIXI.Texture.WHITE);
+        this._whiteSprite = new PIXI.Sprite(PIXI.Texture.WHITE);
         this.setupWhiteSprite();
-        this.linesDrawer = new LinesDrawer(this.containerBoard, this.LINE_WIDTH, 0xbf9b30, 2.25);
-        this.linesDrawer.drawRect(-2, -2, this.widthRectangle, this.heightRectangle);
-        this.linesDrawer.drawLines(this.containerBoard);
+        this._linesDrawer = new LinesDrawer(this._containerBoard, this._LINE_WIDTH, 0xbf9b30, 2.25);
+        this._linesDrawer.drawRect(-2, -2, this._widthRectangle, this._heightRectangle);
+        this._linesDrawer.drawLines(this._containerBoard);
     }
 
     private loadBitmap() {
         const loader = new PIXI.Loader();
-        loader.add("desyrel", this.PATH_BITMAP_FONT + "desyrel.xml").load(this.onAssetsLoaded.bind(this));
+        loader.add("desyrel2", this._PATH_BITMAP_FONT + "desyrel.xml").load(this.onAssetsLoaded.bind(this));
     }
 
     private createPlayers(namePlayer1: string, namePlayer2: string) {
-        this.player1 = new Player(namePlayer1, "X");
-        this.player2 = new Player(namePlayer2, "Y");
+        this._player1 = new Player(namePlayer1, "X");
+        this._player2 = new Player(namePlayer2, "Y");
     }
 
     private setupWhiteSprite() {
-        this.whiteSprite.width = this.widthRectangle;
-        this.whiteSprite.height = this.heightRectangle;
-        this.containerBoard.addChild(this.whiteSprite);
+        this._whiteSprite.width = this._widthRectangle;
+        this._whiteSprite.height = this._heightRectangle;
+        this._containerBoard.addChild(this._whiteSprite);
     }
 
     private setupContainerGame() {
-        this.app.stage.addChild(this.containerGame);
+        this._app.stage.addChild(this._containerGame);
     }
 
     private setupContainerBoard() {
-        this.containerBoard.x = this.xRectangle;
-        this.containerBoard.y = this.yRectangle;
-        this.containerBoard.width = this.widthRectangle;
-        this.containerBoard.height = this.heightRectangle;
-        this.containerGame.addChild(this.containerBoard);
+        this._containerBoard.x = this._xRectangle;
+        this._containerBoard.y = this._yRectangle;
+        this._containerBoard.width = this._widthRectangle;
+        this._containerBoard.height = this._heightRectangle;
+        this._containerGame.addChild(this._containerBoard);
     }
 
     onAssetsLoaded() {
-        this.nameBitmapPlayer1 = new TextFieldBitmap(this.player1.name, 30, "center", -50, 20);
-        this.containerGame.addChild(this.nameBitmapPlayer1);
+        this._nameBitmapPlayer1 = new TextFieldBitmap(this._player1.name, 30, "center", -50, 20);
+        this._containerGame.addChild(this._nameBitmapPlayer1);
 
-        this.nameBitmapPlayer2 = new TextFieldBitmap(this.player2.name, 30, "center", 850, 20);
-        this.containerGame.addChild(this.nameBitmapPlayer2);
+        this._nameBitmapPlayer2 = new TextFieldBitmap(this._player2.name, 30, "center", 850, 20);
+        this._containerGame.addChild(this._nameBitmapPlayer2);
 
         this.insertNames();
     }
 
     private insertNames() {
-        TweenMax.to(this.nameBitmapPlayer1, 1, {
+        TweenMax.to(this._nameBitmapPlayer1, 1, {
             x: 50,
         });
 
-        TweenMax.to(this.nameBitmapPlayer2, 1, {
+        TweenMax.to(this._nameBitmapPlayer2, 1, {
             x: 650,
         });
     }

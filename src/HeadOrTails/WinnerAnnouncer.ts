@@ -3,44 +3,44 @@ import {TweenMax} from "gsap";
 import Gameplay from "../Game/Gameplay/Gameplay";
 
 export default class WinnerAnnouncer {
+    private readonly _app: PIXI.Application;
+    private readonly _container: PIXI.Container;
+    private readonly _coin: PIXI.Sprite;
+    private _winner: PIXI.Sprite;
+    private _winnerName: PIXI.BitmapText;
+    private _looserName: string;
+    private _bitmapNamePlayer1: PIXI.BitmapText;
+    private _bitmapNamePlayer2: PIXI.BitmapText;
+    private _firstPlayer: PIXI.BitmapText;
 
-    private readonly coin: PIXI.Sprite;
-    private winner: PIXI.Sprite;
-    private winnerName: PIXI.BitmapText;
-    private looserName: string;
-    private bitmapNamePlayer1: PIXI.BitmapText;
-    private bitmapNamePlayer2: PIXI.BitmapText;
-    private firstPlayer: PIXI.BitmapText;
-    private readonly app: PIXI.Application;
-    private readonly container: PIXI.Container;
 
     constructor(app: PIXI.Application, container: PIXI.Container, coin: PIXI.Sprite, firstPlayer: PIXI.BitmapText, bitmapNamePlayer1: PIXI.BitmapText, bitmapNamePlayer2: PIXI.BitmapText) {
-        this.app = app;
-        this.container = container;
-        this.bitmapNamePlayer1 = bitmapNamePlayer1;
-        this.bitmapNamePlayer2 = bitmapNamePlayer2;
-        this.firstPlayer = firstPlayer;
-        this.coin = coin;
-        this.winner = new PIXI.Sprite();
+        this._app = app;
+        this._container = container;
+        this._bitmapNamePlayer1 = bitmapNamePlayer1;
+        this._bitmapNamePlayer2 = bitmapNamePlayer2;
+        this._firstPlayer = firstPlayer;
+        this._coin = coin;
+        this._winner = new PIXI.Sprite();
     }
 
     public setWinnerName(name: string) {
-        this.winnerName.text = name;
+        this._winnerName.text = name;
     }
 
     public setWinner(sprite: PIXI.Sprite, name: PIXI.BitmapText) {
-        this.winner = sprite;
-        this.winnerName = name;
-        this.looserName = (this.winnerName.text === this.bitmapNamePlayer1.text) ? this.bitmapNamePlayer2.text : this.bitmapNamePlayer1.text;
+        this._winner = sprite;
+        this._winnerName = name;
+        this._looserName = (this._winnerName.text === this._bitmapNamePlayer1.text) ? this._bitmapNamePlayer2.text : this._bitmapNamePlayer1.text;
     }
 
     public setWinnerTexture(texture: PIXI.Texture) {
-        this.winner.texture = texture;
+        this._winner.texture = texture;
     }
 
 
     public announceWinner() {
-        this.firstPlayer.text = "FIRST MOVE:\n  " + this.winnerName.text;
+        this._firstPlayer.text = "FIRST MOVE:\n  " + this._winnerName.text;
         this.rotateTheWinner();
         this.moveName();
         TweenMax.delayedCall(1, this.hideCoin, null, this);
@@ -49,23 +49,23 @@ export default class WinnerAnnouncer {
     }
 
     private showFirstPlayer() {
-        this.firstPlayer.width = 300
-        this.firstPlayer.height = 150;
+        this._firstPlayer.width = 300
+        this._firstPlayer.height = 150;
     }
 
     private startGame() {
-        this.app.stage.removeChild(this.container);
-        new Gameplay(this.app, this.winnerName.text, this.looserName);
+        this._app.stage.removeChild(this._container);
+        new Gameplay(this._app, this._winnerName.text, this._looserName);
     }
 
     private moveName() {
-        TweenMax.to(this.winnerName, 2, {
+        TweenMax.to(this._winnerName, 2, {
             y: 0,
         });
     }
 
     private hideCoin(): void {
-        TweenMax.to(this.coin, 0.5, {
+        TweenMax.to(this._coin, 0.5, {
             height: 0,
             width: 0,
             rotation: -170
@@ -73,7 +73,7 @@ export default class WinnerAnnouncer {
     }
 
     private rotateTheWinner() {
-        TweenMax.to(this.winner, 2, {
+        TweenMax.to(this._winner, 2, {
             height: 200,
             width: 200,
             rotation: 170

@@ -5,20 +5,20 @@ import HeadOrTails from "../HeadOrTails/HeadOrTails";
 
 export default class PlayButton extends PIXI.Sprite {
 
-    private readonly app: PIXI.Application;
-    readonly gameMenu: GameMenu;
-    private readonly containerMainMenu: PIXI.Container;
-    private namePlayer1: string;
-    private namePlayer2: string;
+    private readonly _app: PIXI.Application;
+    private readonly _gameMenu: GameMenu;
+    private readonly _containerMainMenu: PIXI.Container;
+    private _namePlayer1: string;
+    private _namePlayer2: string;
 
     constructor(gameMenu: GameMenu) {
         super();
-        this.app = gameMenu.app;
-        this.gameMenu = gameMenu;
-        this.containerMainMenu = this.gameMenu.containerMainMenu;
+        this._app = gameMenu.app;
+        this._gameMenu = gameMenu;
+        this._containerMainMenu = this._gameMenu.containerMainMenu;
         this.texture = PIXI.Texture.from("playButton");
-        this.x = this.app.screen.width / 2;
-        this.y = this.app.screen.height / 1.15;
+        this.x = this._app.screen.width / 2;
+        this.y = this._app.screen.height / 1.15;
         this.anchor.set(0.5);
         this.width = 200;
         this.height = 80;
@@ -29,36 +29,36 @@ export default class PlayButton extends PIXI.Sprite {
 
     private addFunctionally() {
         this.on('pointertap', () => {
-                const {gameMenu} = this;
-                gameMenu.removeErrorTexts();
-                this.namePlayer1 = gameMenu.textInputPlayer1.text;
-                this.namePlayer2 = gameMenu.textInputPlayer2.text;
+                const {_gameMenu} = this;
+                _gameMenu.removeErrorTexts();
+                this._namePlayer1 = _gameMenu.textInputPlayer1.text;
+                this._namePlayer2 = _gameMenu.textInputPlayer2.text;
                 if (this.isWrongInput()) {
                     return;
                 }
-                this.containerMainMenu.removeChildren();
-                this.app.stage.removeChild(this.containerMainMenu);
+                this._containerMainMenu.removeChildren();
+                this._app.stage.removeChild(this._containerMainMenu);
                 this.startHeadOrTails();
             }
         );
     }
 
     private isWrongInput() {
-        if (this.namePlayer1 === "" || this.namePlayer2 === "") {
-            this.containerMainMenu.addChild(this.gameMenu.errorEmptyInputText);
+        if (this._namePlayer1 === "" || this._namePlayer2 === "") {
+            this._containerMainMenu.addChild(this._gameMenu.errorEmptyInputText);
             return true;
-        } else if (this.namePlayer1 === this.namePlayer2) {
-            this.containerMainMenu.addChild(this.gameMenu.errorEqualNamesText);
+        } else if (this._namePlayer1 === this._namePlayer2) {
+            this._containerMainMenu.addChild(this._gameMenu.errorEqualNamesText);
             return true;
-        } else if (this.namePlayer1.length > 10 || this.namePlayer2.length > 10) {
-            this.containerMainMenu.addChild(this.gameMenu.errorBiggerLengthText);
+        } else if (this._namePlayer1.length > 10 || this._namePlayer2.length > 10) {
+            this._containerMainMenu.addChild(this._gameMenu.errorBiggerLengthText);
             return true;
         }
         return false;
     }
 
     private startHeadOrTails() {
-        const headOrTails = new HeadOrTails(this.app, this.namePlayer1, this.namePlayer2);
+        const headOrTails = new HeadOrTails(this._app, this._namePlayer1, this._namePlayer2);
         headOrTails.start();
     }
 

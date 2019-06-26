@@ -2,9 +2,9 @@ import * as PIXI from "pixi.js";
 import Menu from "./Menu/GameMenu";
 
 class Main {
-    private static readonly GAME_WIDTH: number = 800;
-    private static readonly GAME_HEIGHT: number = 600;
-    private app: PIXI.Application;
+    public static readonly GAME_WIDTH: number = 800;
+    public static readonly GAME_HEIGHT: number = 600;
+    private _app: PIXI.Application;
 
     constructor() {
         window.onload = () => {
@@ -27,16 +27,16 @@ class Main {
 
     private onAssetsLoaded(): void {
         this.createRenderer();
-        new Menu(this.app);
+        new Menu(this._app);
     }
 
     private createRenderer(): void {
-        this.app = new PIXI.Application({
+        this._app = new PIXI.Application({
             width: Main.GAME_WIDTH,
             height: Main.GAME_HEIGHT,
             antialias: true,
         });
-        document.body.appendChild(this.app.view);
+        document.body.appendChild(this._app.view);
     }
 }
 

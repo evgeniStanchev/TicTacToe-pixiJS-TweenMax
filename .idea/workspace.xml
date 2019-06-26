@@ -2,7 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="345dff8f-cb8c-4797-8760-5f6e7ed8b7b7" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Game/GameIntro/Lines/Feather/FeatherController.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game/GameIntro/Lines/Feather/FeatherController.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Game/GameIntro/Lines/LinesDrawer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game/GameIntro/Lines/LinesDrawer.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Game/Gameplay/Gameplay.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game/Gameplay/Gameplay.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Game/KolarovExample/CanvasBoard.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game/KolarovExample/CanvasBoard.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Game/Player/Player.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game/Player/Player.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/HeadOrTails/HeadOrTails.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/HeadOrTails/HeadOrTails.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/HeadOrTails/Spinner.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/HeadOrTails/Spinner.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/HeadOrTails/WinnerAnnouncer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/HeadOrTails/WinnerAnnouncer.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Menu/GameMenu.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Menu/GameMenu.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Menu/PlayButton.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Menu/PlayButton.ts" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -15,23 +26,14 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Main.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="22" column="37" selection-start-line="22" selection-start-column="37" selection-end-line="22" selection-end-column="37" />
-              <folding>
-                <element signature="e#0#32#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/Game/GameIntro/Lines/Feather/FeatherController.ts">
+        <entry file="file://$PROJECT_DIR$/src/Menu/GameMenu.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="10" column="16" selection-start-line="10" selection-start-column="16" selection-end-line="10" selection-end-column="16" />
+            <state relative-caret-position="640">
+              <caret line="45" column="41" selection-start-line="45" selection-start-column="41" selection-end-line="45" selection-end-column="41" />
+              <folding>
+                <element signature="e#0#38#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -106,8 +108,6 @@
         <option value="$PROJECT_DIR$/src/HeadOrTails/Spinner.ts" />
         <option value="$PROJECT_DIR$/src/Game/Player.ts" />
         <option value="$PROJECT_DIR$/src/Game/GamePlay.ts" />
-        <option value="$PROJECT_DIR$/src/HeadOrTails/WinnerAnnouncer.ts" />
-        <option value="$PROJECT_DIR$/src/Menu/GameMenu.ts" />
         <option value="$PROJECT_DIR$/src/Game/Clock.ts" />
         <option value="$PROJECT_DIR$/src/Game/ClockEvent.ts" />
         <option value="$PROJECT_DIR$/src/Game/CanvasBoard.ts" />
@@ -127,6 +127,8 @@
         <option value="$PROJECT_DIR$/src/Main.ts" />
         <option value="$PROJECT_DIR$/src/Game/GameIntro/Lines/Feather/Feather.ts" />
         <option value="$PROJECT_DIR$/src/Game/GameIntro/Lines/Feather/FeatherController.ts" />
+        <option value="$PROJECT_DIR$/src/HeadOrTails/WinnerAnnouncer.ts" />
+        <option value="$PROJECT_DIR$/src/Menu/GameMenu.ts" />
       </list>
     </option>
   </component>
@@ -142,6 +144,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -158,37 +161,12 @@
               <item name="TicTacToe-pixiJS-TweenMax" type="b2602c69:ProjectViewProjectNode" />
               <item name="TicTacToe-pixiJS-TweenMax" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Game" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="TicTacToe-pixiJS-TweenMax" type="b2602c69:ProjectViewProjectNode" />
-              <item name="TicTacToe-pixiJS-TweenMax" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Game" type="462c0819:PsiDirectoryNode" />
-              <item name="GameIntro" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="TicTacToe-pixiJS-TweenMax" type="b2602c69:ProjectViewProjectNode" />
-              <item name="TicTacToe-pixiJS-TweenMax" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Game" type="462c0819:PsiDirectoryNode" />
-              <item name="GameIntro" type="462c0819:PsiDirectoryNode" />
-              <item name="Lines" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="TicTacToe-pixiJS-TweenMax" type="b2602c69:ProjectViewProjectNode" />
-              <item name="TicTacToe-pixiJS-TweenMax" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Game" type="462c0819:PsiDirectoryNode" />
-              <item name="GameIntro" type="462c0819:PsiDirectoryNode" />
-              <item name="Lines" type="462c0819:PsiDirectoryNode" />
-              <item name="Feather" type="462c0819:PsiDirectoryNode" />
+              <item name="Menu" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -271,11 +249,12 @@
       <workItem from="1561359636491" duration="23030000" />
       <workItem from="1561445739156" duration="9000" />
       <workItem from="1561532945273" duration="131000" />
+      <workItem from="1561538785017" duration="899000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="170356000" />
+    <option name="totallyTimeSpent" value="171255000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -289,7 +268,7 @@
   <component name="ToolWindowManager">
     <frame x="-1928" y="-8" width="1936" height="1176" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.13224447" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.13224447" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -304,7 +283,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="TypeScript" order="9" weight="0.32981783" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="11" visible="true" weight="0.32981783" />
+      <window_info anchor="bottom" id="Terminal" order="11" visible="true" weight="0.32981783" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -497,61 +476,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/HeadOrTails/HeadOrTails.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="396">
-          <caret line="70" selection-start-line="70" selection-end-line="70" />
-          <folding>
-            <element signature="e#0#32#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Utilities/Sprite.ts" />
     <entry file="file://$PROJECT_DIR$/node_modules/pixi.js/pixi.js.d.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="339">
           <caret line="11276" column="8" selection-start-line="11276" selection-start-column="8" selection-end-line="11276" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/HeadOrTails/WinnerAnnouncer.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="64" column="5" selection-start-line="64" selection-start-column="5" selection-end-line="65" />
-          <folding>
-            <element signature="e#0#32#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/HeadOrTails/Spinner.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="595">
-          <caret line="36" column="68" selection-start-line="36" selection-start-column="56" selection-end-line="36" selection-end-column="68" />
-          <folding>
-            <element signature="e#0#32#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Menu/PlayButton.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="21" column="39" selection-start-line="21" selection-start-column="33" selection-end-line="21" selection-end-column="39" />
-          <folding>
-            <element signature="e#0#32#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Menu/GameMenu.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-182">
-          <caret line="57" column="35" selection-start-line="57" selection-start-column="35" selection-end-line="57" selection-end-column="35" />
-          <folding>
-            <element signature="e#0#38#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -579,30 +508,71 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Main.ts">
+    <entry file="file://$PROJECT_DIR$/src/Game/GameIntro/Lines/Feather/Feather.ts" />
+    <entry file="file://$PROJECT_DIR$/src/HeadOrTails/HeadOrTails.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="22" column="37" selection-start-line="22" selection-start-column="37" selection-end-line="22" selection-end-column="37" />
+        <state relative-caret-position="1156">
+          <caret line="68" column="50" selection-start-line="68" selection-start-column="50" selection-end-line="68" selection-end-column="50" />
           <folding>
             <element signature="e#0#32#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Game/GameIntro/Lines/Feather/Feather.ts">
+    <entry file="file://$PROJECT_DIR$/src/Game/GameIntro/Lines/Feather/FeatherController.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="24" column="70" selection-start-line="24" selection-start-column="70" selection-end-line="24" selection-end-column="70" />
+        <state relative-caret-position="85">
+          <caret line="8" selection-start-line="8" selection-end-line="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/HeadOrTails/Spinner.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="612">
+          <caret line="36" column="68" selection-start-line="36" selection-start-column="56" selection-end-line="36" selection-end-column="68" />
           <folding>
-            <element signature="e#0#52#0" expanded="true" />
+            <element signature="e#0#32#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Game/GameIntro/Lines/Feather/FeatherController.ts">
+    <entry file="file://$PROJECT_DIR$/src/Main.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="10" column="16" selection-start-line="10" selection-start-column="16" selection-end-line="10" selection-end-column="16" />
+        <state relative-caret-position="595">
+          <caret line="41" lean-forward="true" selection-start-line="41" selection-end-line="41" />
+          <folding>
+            <element signature="e#0#32#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/HeadOrTails/WinnerAnnouncer.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-726">
+          <caret line="6" column="48" selection-start-line="6" selection-start-column="48" selection-end-line="6" selection-end-column="48" />
+          <folding>
+            <element signature="e#0#32#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Menu/PlayButton.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="25" column="31" lean-forward="true" selection-start-line="25" selection-start-column="31" selection-end-line="25" selection-end-column="31" />
+          <folding>
+            <element signature="e#0#32#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Menu/GameMenu.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="640">
+          <caret line="45" column="41" selection-start-line="45" selection-start-column="41" selection-end-line="45" selection-end-column="41" />
+          <folding>
+            <element signature="e#0#38#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

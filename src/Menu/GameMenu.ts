@@ -6,8 +6,8 @@ import TextFieldBitmap from "../Utilities/TextFieldBitmap";
 import MyTextInput from "../Utilities/TextInput";
 
 export default class GameMenu extends PIXI.DisplayObject {
-    private readonly PATH_BITMAP_FONT: string = `assets/bitmap-font/`;
-    private readonly playButton: PlayButton;
+    private readonly _PATH_BITMAP_FONT: string = `assets/bitmap-font/`;
+    private readonly _playButton: PlayButton;
     private readonly _containerMainMenu: PIXI.Container;
     private readonly _app: PIXI.Application;
 
@@ -25,10 +25,10 @@ export default class GameMenu extends PIXI.DisplayObject {
         super();
         this._app = app;
         const loader: PIXI.Loader = new PIXI.Loader();
-        loader.add('desyrel', this.PATH_BITMAP_FONT + 'desyrel.xml').load(this.onAssetsLoaded.bind(this));
+        loader.add('desyrel', this._PATH_BITMAP_FONT + 'desyrel.xml').load(this.onAssetsLoaded.bind(this));
         this._containerMainMenu = new PIXI.Container();
         this.createBackground();
-        this.playButton = new PlayButton(this);
+        this._playButton = new PlayButton(this);
     };
 
     private createBackground() {
@@ -38,7 +38,6 @@ export default class GameMenu extends PIXI.DisplayObject {
         this._background.y = this._app.screen.height / 2;
     }
 
-//Getters
     get errorEmptyInputText(): PIXI.Text {
         return this._errorEmptyInputText;
     }
@@ -80,7 +79,7 @@ export default class GameMenu extends PIXI.DisplayObject {
     onAssetsLoaded() {
         this._app.stage.addChild(this._containerMainMenu);
         this._containerMainMenu.addChild(this.background);
-        this._containerMainMenu.addChild(this.playButton);
+        this._containerMainMenu.addChild(this._playButton);
 
         this._titleText = new TextFieldBitmap("Tic-Tac-Toe", 75, "center", this._app.screen.width / 3.5, this._app.screen.height / 12);
         this._containerMainMenu.addChild(this._titleText);
