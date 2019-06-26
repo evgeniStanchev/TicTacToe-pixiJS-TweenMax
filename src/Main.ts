@@ -1,5 +1,5 @@
 import * as PIXI from "pixi.js";
-import Gameplay from "./Game/Gameplay/Gameplay";
+import Menu from "./Menu/GameMenu";
 
 class Main {
     private static readonly GAME_WIDTH: number = 800;
@@ -27,8 +27,7 @@ class Main {
 
     private onAssetsLoaded(): void {
         this.createRenderer();
-        // new GameMenu(this.app);
-        new Gameplay(this.app, "Player1", "Player2");
+        new Menu(this.app);
     }
 
     private createRenderer(): void {
