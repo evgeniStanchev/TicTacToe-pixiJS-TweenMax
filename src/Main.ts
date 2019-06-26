@@ -1,6 +1,5 @@
 import * as PIXI from "pixi.js";
 import Gameplay from "./Game/Gameplay/Gameplay";
-import GameMenu from "./Menu/GameMenu";
 
 class Main {
     private static readonly GAME_WIDTH: number = 800;
@@ -19,7 +18,7 @@ class Main {
         loader.add("head", "../assets/images/head.png");
         loader.add("tail", "../assets/images/tail.png");
         loader.add("background", "../assets/tictactoe-background.jpg");
-        loader.add("playButton", "../assets/playButton.png")
+        loader.add("playButton", "../assets/playButton.png");
         loader.on("complete", () => {
             this.onAssetsLoaded();
         });

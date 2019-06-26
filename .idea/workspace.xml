@@ -2,26 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="345dff8f-cb8c-4797-8760-5f6e7ed8b7b7" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Game/GameIntro/Lines/Feather/Feather.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Game/GameIntro/Lines/Feather/FeatherController.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Game/GameIntro/Lines/LinesDrawer.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Game/Gameplay/Gameplay.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Game/KolarovExample/CanvasBoard.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Game/KolarovExample/Clock.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Game/KolarovExample/ClockEvent.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/images/feather.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/images/feather.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Game/Board.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Game/CanvasBoard.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Game/Clock.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Game/ClockEvent.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Game/Gameplay.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Game/Painter.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Game/Player.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game/Player/Player.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/HeadOrTails/HeadOrTails.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/HeadOrTails/HeadOrTails.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/HeadOrTails/WinnerAnnouncer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/HeadOrTails/WinnerAnnouncer.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Utilities/Sprite.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Game/GameIntro/Lines/Feather/FeatherController.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game/GameIntro/Lines/Feather/FeatherController.ts" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -37,8 +18,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Main.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="16" column="37" selection-start-line="16" selection-start-column="37" selection-end-line="16" selection-end-column="37" />
+            <state relative-caret-position="357">
+              <caret line="22" column="37" selection-start-line="22" selection-start-column="37" selection-end-line="22" selection-end-column="37" />
               <folding>
                 <element signature="e#0#32#0" expanded="true" />
               </folding>
@@ -46,26 +27,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Game/GameIntro/Lines/Feather/FeatherController.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
-              <caret line="25" column="17" selection-start-line="25" selection-start-column="17" selection-end-line="25" selection-end-column="17" />
-              <folding>
-                <element signature="e#0#30#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/Game/GameIntro/Lines/Feather/Feather.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="345">
-              <caret line="24" column="70" selection-start-line="24" selection-start-column="70" selection-end-line="24" selection-end-column="70" />
-              <folding>
-                <element signature="e#0#52#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="119">
+              <caret line="10" column="16" selection-start-line="10" selection-start-column="16" selection-end-line="10" selection-end-column="16" />
             </state>
           </provider>
         </entry>
@@ -159,8 +125,8 @@
         <option value="$PROJECT_DIR$/src/Game/Gameplay/Gameplay.ts" />
         <option value="$PROJECT_DIR$/src/HeadOrTails/HeadOrTails.ts" />
         <option value="$PROJECT_DIR$/src/Main.ts" />
-        <option value="$PROJECT_DIR$/src/Game/GameIntro/Lines/Feather/FeatherController.ts" />
         <option value="$PROJECT_DIR$/src/Game/GameIntro/Lines/Feather/Feather.ts" />
+        <option value="$PROJECT_DIR$/src/Game/GameIntro/Lines/Feather/FeatherController.ts" />
       </list>
     </option>
   </component>
@@ -304,11 +270,12 @@
       <workItem from="1561106766965" duration="12949000" />
       <workItem from="1561359636491" duration="23030000" />
       <workItem from="1561445739156" duration="9000" />
+      <workItem from="1561532945273" duration="131000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="170225000" />
+    <option name="totallyTimeSpent" value="170356000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -614,31 +581,28 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Main.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="16" column="37" selection-start-line="16" selection-start-column="37" selection-end-line="16" selection-end-column="37" />
+        <state relative-caret-position="357">
+          <caret line="22" column="37" selection-start-line="22" selection-start-column="37" selection-end-line="22" selection-end-column="37" />
           <folding>
             <element signature="e#0#32#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Game/GameIntro/Lines/Feather/FeatherController.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="25" column="17" selection-start-line="25" selection-start-column="17" selection-end-line="25" selection-end-column="17" />
-          <folding>
-            <element signature="e#0#30#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Game/GameIntro/Lines/Feather/Feather.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
+        <state relative-caret-position="391">
           <caret line="24" column="70" selection-start-line="24" selection-start-column="70" selection-end-line="24" selection-end-column="70" />
           <folding>
             <element signature="e#0#52#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Game/GameIntro/Lines/Feather/FeatherController.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="10" column="16" selection-start-line="10" selection-start-column="16" selection-end-line="10" selection-end-column="16" />
         </state>
       </provider>
     </entry>
