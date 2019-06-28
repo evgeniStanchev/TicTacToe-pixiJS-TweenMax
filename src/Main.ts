@@ -1,5 +1,7 @@
 import * as PIXI from "pixi.js";
 import Menu from "./Menu/GameMenu";
+import GameController from "./Game/GameController/GameController";
+import GameMenu from "./Menu/GameMenu";
 
 class Main {
     public static readonly GAME_WIDTH: number = 800;
@@ -14,6 +16,7 @@ class Main {
 
     private startLoadingAssets(): void {
         const loader = PIXI.Loader.shared;
+        loader.add("desyrel", "assets/bitmap-font/" + "desyrel.xml");
         loader.add("feather", "../assets/images/feather.png");
         loader.add("head", "../assets/images/head.png");
         loader.add("tail", "../assets/images/tail.png");
@@ -27,7 +30,8 @@ class Main {
 
     private onAssetsLoaded(): void {
         this.createRenderer();
-        new Menu(this._app);
+        new GameController(this._app);
+
     }
 
     private createRenderer(): void {
