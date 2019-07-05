@@ -4,22 +4,28 @@ import Scene from "../Game/GameController/Scene";
 import { TweenMax, TimelineMax } from "gsap";
 
 export default class HeadOrTail extends Scene {
-    private readonly _MAX_SIZE_COIN: number = 225;
-    private readonly _app: PIXI.Application;
-    private _namePlayer1: string;
-    private _namePlayer2: string;
+    public static readonly MAX_SIZE_COIN: number = 225;
 
+    private readonly _app: PIXI.Application;
     private readonly _tl: TimelineMax;
+
     private _head: PIXI.Sprite;
     private _tail: PIXI.Sprite;
-    private _spinner: Spinner;
+    private _winnerSprite: PIXI.Sprite;
     private _coin: PIXI.Sprite;
+
     private _bitmapNamePlayer1: PIXI.BitmapText;
     private _bitmapNamePlayer2: PIXI.BitmapText;
     private _bitmapFirstPlayer: PIXI.BitmapText;
+
     private _looserName: PIXI.BitmapText;
     private _winnerName: PIXI.BitmapText;
-    private _winnerSprite: PIXI.Sprite;
+
+    private _namePlayer1: string;
+    private _namePlayer2: string;
+
+    private _spinner: Spinner;
+
     constructor(app: PIXI.Application) {
         super();
         this._app = app;
@@ -87,8 +93,8 @@ export default class HeadOrTail extends Scene {
         this._coin.anchor.set(0.5);
         this._coin.x = this._app.screen.width / 2;
         this._coin.y = this._app.screen.height / 1.5;
-        this._coin.width = this._MAX_SIZE_COIN;
-        this._coin.height = this._MAX_SIZE_COIN;
+        this._coin.width = HeadOrTail.MAX_SIZE_COIN;
+        this._coin.height = HeadOrTail.MAX_SIZE_COIN;
         this.addChild(this._coin);
 
         this._head = new PIXI.Sprite();
@@ -109,7 +115,7 @@ export default class HeadOrTail extends Scene {
         this._tail.height = 100;
         this.addChild(this._tail);
 
-        this._spinner = new Spinner(this._coin, this._head, this._tail, this._MAX_SIZE_COIN);
+        this._spinner = new Spinner(this._coin, this._head, this._tail, HeadOrTail.MAX_SIZE_COIN);
         this._spinner.on("finished", () => {
             const isHead: boolean = this._coin.texture === this._head.texture;
             this._winnerSprite = isHead ? this._head : this._tail;

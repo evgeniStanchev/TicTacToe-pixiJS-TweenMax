@@ -1,8 +1,8 @@
 import * as PIXI from "pixi.js";
 import { TweenMax, TimelineMax } from "gsap";
+import HeadOrTail from "./HeadOrTails";
 
 export default class CoinSpinner extends PIXI.Container {
-    private readonly _MAX_SIZE_COIN: number;
     private readonly _tail: PIXI.Sprite;
     private readonly _head: PIXI.Sprite;
     private readonly _coin: PIXI.Sprite;
@@ -10,7 +10,6 @@ export default class CoinSpinner extends PIXI.Container {
     private readonly _multiplier: number;
     constructor(coin: PIXI.Sprite, head: PIXI.Sprite, tail: PIXI.Sprite, coinSize: number) {
         super();
-        this._MAX_SIZE_COIN = coinSize;
         this._coin = coin;
         this._tail = tail;
         this._head = head;
@@ -32,7 +31,7 @@ export default class CoinSpinner extends PIXI.Container {
             );
             tl.add(
                 TweenMax.to(this._coin, 0.1, {
-                    width: this._MAX_SIZE_COIN,
+                    width: HeadOrTail.MAX_SIZE_COIN,
                 })
             );
 
@@ -54,7 +53,7 @@ export default class CoinSpinner extends PIXI.Container {
 
             tl.add(
                 TweenMax.to(this._coin, 0.1, {
-                    width: this._MAX_SIZE_COIN,
+                    width: HeadOrTail.MAX_SIZE_COIN,
                 })
             );
         }

@@ -1,13 +1,13 @@
 import * as PIXI from "pixi.js";
-import GameMenu from "./GameMenu";
+import Menu from "./Menu";
 
 export default class PlayButton extends PIXI.Sprite {
     private readonly _app: PIXI.Application;
-    private readonly _gameMenu: GameMenu;
+    private readonly _gameMenu: Menu;
     private _namePlayer1: string;
     private _namePlayer2: string;
 
-    constructor(gameMenu: GameMenu) {
+    constructor(gameMenu: Menu) {
         super();
         this._app = gameMenu.app;
         this._gameMenu = gameMenu;
