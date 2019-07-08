@@ -1,5 +1,5 @@
 import * as PIXI from "pixi.js";
-import GameIntro from "./Game/GameIntro/GameIntro";
+import GameController from "./Game/GameController/GameController";
 
 class Main {
     public static readonly GAME_WIDTH: number = 800;
@@ -28,8 +28,7 @@ class Main {
 
     private onAssetsLoaded(): void {
         this.createRenderer();
-        new GameIntro(this._app).onStart();
-        // new GameController(this._app);
+        new GameController(this._app);
     }
 
     private createRenderer(): void {

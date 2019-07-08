@@ -5,10 +5,16 @@ import { TweenMax } from "gsap";
 export default class FeatherController {
     private readonly _view: FeatherView;
     private readonly _model: FeatherModel;
+    private readonly _height: number;
 
     constructor(view: FeatherView, model: FeatherModel) {
         this._view = view;
         this._model = model;
+        this._height = this._view.texture.height;
+    }
+
+    get height(){
+        return this._height;
     }
 
     set x(x: number) {

@@ -26,18 +26,15 @@ export default class FeatherModel {
 
     public fadeAway(): TweenMax {
         return TweenMax.to(this._view, 2, {
-            x: 50,
-            y: 150,
-            rotation: 90,
-            width: 0,
-            height: 0,
+            width : 0,
+            height : 0
         });
     }
 
     public arrive(scale: number): TweenMax {
         return TweenMax.to(this._view, 1.5, {
             width: this._view.texture.width * scale,
-            height: this._view.texture.height*scale
+            height: this._view.texture.height * scale
         });
     }
 }

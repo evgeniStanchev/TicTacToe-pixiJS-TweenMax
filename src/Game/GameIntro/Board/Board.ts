@@ -4,6 +4,9 @@ import Lines from "../Lines/Lines";
 import { TimelineMax } from "gsap";
 
 export default class Board extends PIXI.Container {
+    
+    public static readonly LINE_WIDTH: number = 4;
+    
     private readonly canvas: PIXI.Graphics;
     public static readonly BACKGROUND_COLOR: number = 0xffffff;
 
@@ -24,10 +27,10 @@ export default class Board extends PIXI.Container {
 
     public drawBoard() {
         this.canvas.beginFill(0xffffff);
-        this.canvas.drawRect(-GameIntro.LINE_WIDTH / 2, -GameIntro.LINE_WIDTH / 2, this._width, this._height);
+        this.canvas.drawRect(-Board.LINE_WIDTH / 2, -Board.LINE_WIDTH / 2, this._width, this._height);
         this.canvas.endFill();
         this.addChild(this.canvas);
-        this._lines.drawRect(-GameIntro.LINE_WIDTH / 2, -GameIntro.LINE_WIDTH / 2, this._width, this._height);
+        this._lines.drawRect(-Board.LINE_WIDTH / 2, -Board.LINE_WIDTH / 2, this._width, this._height);
         this.addChild(this._lines);
         this._lines.drawLines();
     }

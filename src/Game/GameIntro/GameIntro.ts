@@ -6,8 +6,6 @@ import PlayersInfo from "./PlayerInfo/PlayersInfo";
 
 //TODO The size of the names can change the size of the font
 export default class GameIntro extends Scene {
-    public static readonly FEATHER_SCALE = 0.4;
-    public static readonly LINE_WIDTH: number = 4;
     private readonly _timeline: TimelineMax;
     private _board: Board;
     private _app: PIXI.Application;
@@ -20,9 +18,9 @@ export default class GameIntro extends Scene {
         this._app.stage.addChild(this);
         this._timeline = new TimelineMax();
         this._playersInfo = new PlayersInfo(this._timeline);
+        this._playersInfo.y = 35;
         this.addChild(this._playersInfo);
     }
-
    
     get timeLine(): TimelineMax {
         return this.timeLine;
@@ -38,8 +36,8 @@ export default class GameIntro extends Scene {
 
     onStart(): void {
         this._playersInfo.insertNames();
+        this.insertBoard();
         this._playersInfo.insertSigns();
-        // this.insertBoard();
     }
 
     private insertBoard() {
@@ -48,9 +46,7 @@ export default class GameIntro extends Scene {
         this.addChild(this._board);
     }
 
-    
-
     onExit(): void {
-        throw new Error("Method not implemented.");
+        this.emit("exit", this._playersInfo.player1, this._playersInfo.player2);
     }
 }

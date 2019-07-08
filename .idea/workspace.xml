@@ -2,21 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="345dff8f-cb8c-4797-8760-5f6e7ed8b7b7" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Game/GameController/GameController.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game/GameController/GameController.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Game/GameIntro/GameIntro.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game/GameIntro/GameIntro.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Game/GameIntro/Lines/Feather/FeatherController.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Game/GameIntro/Lines/Feather/FeatherModel.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Game/GameIntro/Lines/Feather/FeatherView.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Game/GameIntro/Lines/LineDrawer.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Game/Gameplay/Gameplay.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game/Gameplay/Gameplay.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Game/Player/Player.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game/Player/Player.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/HeadOrTails/CoinSpinner.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/HeadOrTails/CoinSpinner.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/HeadOrTails/HeadOrTails.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/HeadOrTails/HeadOrTails.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Menu/GameMenu.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Menu/PlayButton.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Menu/PlayButton.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Game/GameIntro/PlayerInfo/PlayerInfo.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game/GameIntro/PlayerInfo/PlayerInfo.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Game/GameIntro/Signs/X.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game/GameIntro/Signs/X.ts" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -51,7 +39,7 @@
         <entry file="file://$PROJECT_DIR$/src/Utilities/TextInput.ts">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="391">
-              <caret line="23" column="1" lean-forward="true" selection-start-line="23" selection-start-column="1" selection-end-line="23" selection-end-column="1" />
+              <caret line="23" column="1" selection-start-line="23" selection-start-column="1" selection-end-line="23" selection-end-column="1" />
               <folding>
                 <element signature="e#0#31#0" expanded="true" />
               </folding>
@@ -286,11 +274,12 @@
       <workItem from="1562235180738" duration="6000" />
       <workItem from="1562246921881" duration="861000" />
       <workItem from="1562313465864" duration="599000" />
+      <workItem from="1562323603060" duration="600000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="173560000" />
+    <option name="totallyTimeSpent" value="174160000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -530,7 +519,7 @@
     <entry file="file://$PROJECT_DIR$/src/Utilities/TextInput.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="391">
-          <caret line="23" column="1" lean-forward="true" selection-start-line="23" selection-start-column="1" selection-end-line="23" selection-end-column="1" />
+          <caret line="23" column="1" selection-start-line="23" selection-start-column="1" selection-end-line="23" selection-end-column="1" />
           <folding>
             <element signature="e#0#31#0" expanded="true" />
           </folding>

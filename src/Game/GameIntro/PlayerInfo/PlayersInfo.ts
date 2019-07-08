@@ -1,52 +1,60 @@
 import * as PIXI from "pixi.js";
-import PlayerInfo from "./PlayerInfo";
 import Sign from "../Signs/Sign";
 import { TimelineMax, TweenMax } from "gsap";
 import X from "../Signs/X";
 import O from "../Signs/O";
+import Player from "../../Player/Player";
+import { ALIGN } from "../../Player/ALIGN";
 
 export default class PlayersInfo extends PIXI.Container {
  
-    private _playerInfo1: PlayerInfo;
-    // private _playerInfo2: PlayerInfo;
+    private _player1: Player;
+    private _player2: Player;
     private _xSign: Sign;
     private _oSign: Sign;
     private _timeline: TimelineMax; 
-    // private _feather: FeatherController;
 
     constructor(timeline: TimelineMax) {
         super();
         this._timeline = timeline;
-        this._xSign = new X(30, this._timeline);
-        this._oSign = new O(30,  this._timeline);
-        this._playerInfo1 = new PlayerInfo(this._xSign);
-        // this._playerInfo2 = new PlayerInfo(this._oSign,featherView);
-        this._playerInfo1.x = - 500;
-        // this._playerInfo2.x = 1500;
-        this.addChild(this._playerInfo1);
-        // this.addChild(this._playerInfo2);
         
-        this._playerInfo1.name = "Evgeni";
-        // this._playerInfo2.name = "Diana";
-       
+        this._xSign = new X(30, this._timeline);
+        this._player1 = new Player(this._xSign, ALIGN.LEFT);
+        this._player1.x = - 500;
+        this._player1.name = "OOOOOOOOOO";
+        this.addChild(this._player1);
+        
+        this._oSign = new O(30,  this._timeline);
+        this._player2 = new Player(this._oSign, ALIGN.RIGHT);
+        this._player2.x = 1500;
+        this._player2.name = "OOOOOOOOOO";
+        this.addChild(this._player2);
     }
 
     set namePlayer1(name: string) {
-        this._playerInfo1.name = name;
+        this._player1.name = name;
     }
 
     set namePlayer2(name: string) {
-        // this._playerInfo2.name = name;
+        this._player2.name = name;
+    }
+
+    get player1(){
+        return this._player1;
+    }
+
+    get player2(){
+        return this._player2;
     }
 
     public insertSigns() {
-        this._playerInfo1.drawSign();
-        // this._playerInfo2.drawSign();
+        this._player1.drawSign();
+        this._player2.drawSign();
     }
 
     public insertNames() {
         this._timeline
-            .add(TweenMax.to(this._playerInfo1, 1, { x: 80 }))
-            // .add(TweenMax.to(this._playerInfo2, 1, { x: 500 }));
+            .add(TweenMax.to(this._player1, 1, { x: 80 }))
+            .add(TweenMax.to(this._player2, 1, { x: 420 }));
     }
 }
