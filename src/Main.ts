@@ -13,7 +13,7 @@ class Main {
     }
 
     private startLoadingAssets(): void {
-        const loader = PIXI.Loader.shared;
+        const loader = new PIXI.Loader;
         loader.add("desyrel", "assets/bitmap-font/" + "desyrel.xml");
         loader.add("feather", "../assets/images/feather.png");
         loader.add("head", "../assets/images/head.png");
@@ -28,6 +28,7 @@ class Main {
 
     private onAssetsLoaded(): void {
         this.createRenderer();
+      
         new GameController(this._app);
     }
 

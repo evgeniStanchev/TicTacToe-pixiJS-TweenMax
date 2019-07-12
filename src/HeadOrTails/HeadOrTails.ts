@@ -9,17 +9,17 @@ export default class HeadOrTail extends Scene {
     private readonly _app: PIXI.Application;
     private readonly _tl: TimelineMax;
 
-    private _head: PIXI.Sprite;
-    private _tail: PIXI.Sprite;
-    private _winnerSprite: PIXI.Sprite;
-    private _coin: PIXI.Sprite;
-
     private _bitmapNamePlayer1: PIXI.BitmapText;
     private _bitmapNamePlayer2: PIXI.BitmapText;
     private _bitmapFirstPlayer: PIXI.BitmapText;
 
     private _looserName: PIXI.BitmapText;
     private _winnerName: PIXI.BitmapText;
+
+    private _head: PIXI.Sprite;
+    private _tail: PIXI.Sprite;
+    private _winnerSprite: PIXI.Sprite;
+    private _coin: PIXI.Sprite;
 
     private _namePlayer1: string;
     private _namePlayer2: string;
@@ -40,7 +40,7 @@ export default class HeadOrTail extends Scene {
         this._namePlayer2 = name;
     }
 
-    public onStart() {
+    public start() {
         const loader: PIXI.Loader = new PIXI.Loader();
         loader.load(this.onAssetsLoaded.bind(this));
         this._spinner.spin();
@@ -120,7 +120,7 @@ export default class HeadOrTail extends Scene {
             const isHead: boolean = this._coin.texture === this._head.texture;
             this._winnerSprite = isHead ? this._head : this._tail;
             this._winnerName = isHead ? this._bitmapNamePlayer1 : this._bitmapNamePlayer2;
-            this._looserName = isHead ? this._bitmapNamePlayer2 : this._bitmapNamePlayer2;
+            this._looserName = isHead ? this._bitmapNamePlayer2 : this._bitmapNamePlayer1;
             this._bitmapFirstPlayer.text = "FIRST MOVE:\n  " + this._winnerName.text;
             this.announceWinner();
         });

@@ -1,5 +1,5 @@
 import FeatherView from "./FeatherView";
-import { TweenMax, Linear, TimelineMax, TimelineLite } from "gsap";
+import { TweenMax, Linear } from "gsap";
 
 export default class FeatherModel {
     private readonly _view: FeatherView;
@@ -34,7 +34,9 @@ export default class FeatherModel {
     public arrive(scale: number): TweenMax {
         return TweenMax.to(this._view, 1.5, {
             width: this._view.texture.width * scale,
-            height: this._view.texture.height * scale
+            height: this._view.texture.height * scale,
         });
+        
     }
+
 }

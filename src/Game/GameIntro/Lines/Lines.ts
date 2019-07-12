@@ -7,7 +7,7 @@ import Board from "../Board/Board";
 
 export default class Lines extends PIXI.Graphics {
     public static LINE_COLOR: number = 0xbf9b30;
-    public static SPEED: number = 2;
+    public static SPEED: number = 0.1;
     public static FACTOR: number = 750;
     
     private readonly _delay: number;
@@ -20,7 +20,19 @@ export default class Lines extends PIXI.Graphics {
         this._timeline = timeline;
         this._delay= Lines.SPEED/Lines.FACTOR;
         this.lineStyle(Board.LINE_WIDTH, Lines.LINE_COLOR);
-       
+    
+    }
+
+    public drawLines() {
+        const featherView = new FeatherView();
+        featherView.scale.set(0.6);
+        featherView.interactive = true;
+        const featherModel = new FeatherModel(featherView);
+        this._feather = new FeatherController(featherView, featherModel);
+        this.addChild(featherView);
+        this.drawHorizontalLines();
+        this.drawVerticalLines();
+        this._timeline.add(this._feather.fadeAway());
     }
 
     private drawHorizontalLine(x: number, y: number) {
@@ -30,7 +42,7 @@ export default class Lines extends PIXI.Graphics {
                 TweenMax.delayedCall(
                     this._delay,
                     (x: number, y: number) => {
-                        this.beginFill();
+                        this.beginFill(Lines.LINE_COLOR);
                         this.moveTo(x, y);
                         this.moveFeather(x + 1, y);
                         this.lineTo(x + 1, y);
@@ -49,7 +61,7 @@ export default class Lines extends PIXI.Graphics {
                 TweenMax.delayedCall(
                     this._delay,
                     (x: number, y: number) => {
-                        this.beginFill();
+                        this.beginFill(Lines.LINE_COLOR);
                         this.moveTo(x, y);
                         this.moveFeather(x, y + 1);
                         this.lineTo(x, y + 1);
@@ -80,17 +92,5 @@ export default class Lines extends PIXI.Graphics {
         const y = this.height - Board.LINE_WIDTH / 2;
         this.drawVerticalLine(x, y);
         this.drawVerticalLine(x * 2, y);
-    }
-
-    public drawLines() {
-        const featherView = new FeatherView();
-        featherView.scale.set(0.6);
-        featherView.interactive = true;
-        const featherModel = new FeatherModel(featherView);
-        this._feather = new FeatherController(featherView, featherModel);
-        this.addChild(featherView);
-        this.drawHorizontalLines();
-        this.drawVerticalLines();
-        this._timeline.add(this._feather.fadeAway());
     }
 }

@@ -3,9 +3,11 @@ import Menu from "../../Menu/Menu";
 import HeadOrTail from "../../HeadOrTails/HeadOrTails";
 import GameIntro from "../GameIntro/GameIntro";
 import Gameplay from "../Gameplay/Gameplay";
-import Player from "../Player/Player";
+import PlayersInfo from "../GameIntro/PlayerInfo/PlayersInfo";
+import Canvas from "../GameIntro/Board/Canvas/Canvas";
 
 export default class GameController {
+    
     private _gameMenu: Menu;
     private _headOrTail: HeadOrTail;
     private _gameIntro: GameIntro;
@@ -22,7 +24,7 @@ export default class GameController {
     }
 
     private startApp() {
-        this._gameMenu.onStart();
+        this._gameMenu.start();
     }
 
     private setupEvents() {
@@ -34,18 +36,19 @@ export default class GameController {
     private startGameIntro(firstPlayerName: string, secondPlayerName: string) {
         this._gameIntro.namePlayer1 = firstPlayerName;
         this._gameIntro.namePlayer2 = secondPlayerName;
-        this._gameIntro.onStart();
+        this._gameIntro.start();
     }
 
-    private startGameplay(player1: Player, player2: Player) {
-        this._gameplay.player1 = player1;
-        this._gameplay.player2 = player2;
-        this._gameplay.onStart();
+    private startGameplay(playersInfo : PlayersInfo, canvas : Canvas) {
+        this._gameplay.player1 = playersInfo.player1;
+        this._gameplay.player2 = playersInfo.player2;
+        this._gameplay.canvas = canvas;
+        this._gameplay.start();
     }
 
     private startHeadOrTail(namePlayer1: string, namePlayer2: string) {
         this._headOrTail.namePlayer1 = namePlayer1;
         this._headOrTail.namePlayer2 = namePlayer2;
-        this._headOrTail.onStart();
+        this._headOrTail.start();
     }
 }

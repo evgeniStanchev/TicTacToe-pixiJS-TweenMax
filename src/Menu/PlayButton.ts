@@ -1,6 +1,7 @@
 import * as PIXI from "pixi.js";
 import Menu from "./Menu";
 
+//TODOPlayButton shouldnt be another class
 export default class PlayButton extends PIXI.Sprite {
     private readonly _app: PIXI.Application;
     private readonly _gameMenu: Menu;

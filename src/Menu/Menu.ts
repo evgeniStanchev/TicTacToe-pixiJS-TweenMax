@@ -25,7 +25,7 @@ export default class Menu extends Scene {
         super();
         this._app = app;
     }
-
+//public methods upper
     private createBackground() {
         this._background = PIXI.Sprite.from("background");
         this._background.anchor.set(0.5);
@@ -75,7 +75,7 @@ export default class Menu extends Scene {
         this.removeChild(this._errorBiggerLengthText);
     }
 
-    onAssetsLoaded() {
+    private onAssetsLoaded() {
         this._app.stage.addChild(this);
         this.addChild(this.background);
         this.addChild(this._playButton);
@@ -138,10 +138,10 @@ export default class Menu extends Scene {
         );
     }
 
-    onStart(): void {
+    start(): void {
         this.createBackground();
         this._playButton = new PlayButton(this);
-        const loader: PIXI.Loader = new PIXI.Loader();
+        const loader = new PIXI.Loader();
         loader.load(this.onAssetsLoaded.bind(this));
     }
 

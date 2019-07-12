@@ -5,9 +5,10 @@ import X from "../Signs/X";
 import O from "../Signs/O";
 import Player from "../../Player/Player";
 import { ALIGN } from "../../Player/ALIGN";
+import Square from "../Board/Square/Square";
 
 export default class PlayersInfo extends PIXI.Container {
- 
+    private readonly _signSize: number = 30;
     private _player1: Player;
     private _player2: Player;
     private _xSign: Sign;
@@ -17,17 +18,19 @@ export default class PlayersInfo extends PIXI.Container {
     constructor(timeline: TimelineMax) {
         super();
         this._timeline = timeline;
-        
-        this._xSign = new X(30, this._timeline);
-        this._player1 = new Player(this._xSign, ALIGN.LEFT);
+
+        const squarePlayer1 = new Square();
+        this._xSign = new X( this._timeline, squarePlayer1);
+        this._player1 = new Player(this._xSign, ALIGN.LEFT, squarePlayer1);
         this._player1.x = - 500;
-        this._player1.name = "OOOOOOOOOO";
+        this._player1.name = "Player1";
         this.addChild(this._player1);
         
-        this._oSign = new O(30,  this._timeline);
-        this._player2 = new Player(this._oSign, ALIGN.RIGHT);
+        const squarePlayer2 = new Square();
+        this._oSign = new O(this._timeline, squarePlayer2);
+        this._player2 = new Player(this._oSign, ALIGN.RIGHT, squarePlayer2);
         this._player2.x = 1500;
-        this._player2.name = "OOOOOOOOOO";
+        this._player2.name = "Player2";
         this.addChild(this._player2);
     }
 
@@ -48,8 +51,8 @@ export default class PlayersInfo extends PIXI.Container {
     }
 
     public insertSigns() {
-        this._player1.drawSign();
-        this._player2.drawSign();
+        // this._player1.drawSign();
+        // this._player2.drawSign();
     }
 
     public insertNames() {

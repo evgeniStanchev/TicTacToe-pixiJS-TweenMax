@@ -1,38 +1,31 @@
 import * as PIXI from "pixi.js";
-import GameIntro from "../../GameIntro/GameIntro";
-import Lines from "../Lines/Lines";
 import { TimelineMax } from "gsap";
+import Canvas from "./Canvas/Canvas";
 
 export default class Board extends PIXI.Container {
     
     public static readonly LINE_WIDTH: number = 4;
-    
-    private readonly canvas: PIXI.Graphics;
     public static readonly BACKGROUND_COLOR: number = 0xffffff;
-
-    private readonly _x: number = 190;
-    private readonly _y: number = 125;
-    private readonly _width: number = 420;
-    private readonly _height: number = 420;
-
-    private _lines: Lines;
+    
+    private _canvas : Canvas;
 
     constructor(timeline: TimelineMax) {
         super();
-        this.x = this._x;
-        this.y = this._y;
-        this.canvas = new PIXI.Graphics();
-        this._lines = new Lines(timeline);
+        this.interactive = true;
+        this.x = 190;
+        this.y = 125;
+        this.width = 420;
+        this.height = 420;
+        this._canvas = new Canvas(420,420,timeline);
+        this.addChild(this._canvas);
+    }
+
+    get canvas(): Canvas{
+        return this._canvas;
     }
 
     public drawBoard() {
-        this.canvas.beginFill(0xffffff);
-        this.canvas.drawRect(-Board.LINE_WIDTH / 2, -Board.LINE_WIDTH / 2, this._width, this._height);
-        this.canvas.endFill();
-        this.addChild(this.canvas);
-        this._lines.drawRect(-Board.LINE_WIDTH / 2, -Board.LINE_WIDTH / 2, this._width, this._height);
-        this.addChild(this._lines);
-        this._lines.drawLines();
+       this._canvas.drawBoard();
     }
 
 }

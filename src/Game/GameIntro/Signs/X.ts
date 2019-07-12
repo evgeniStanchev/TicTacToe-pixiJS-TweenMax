@@ -1,27 +1,33 @@
 import Sign from "./Sign";
 import { TimelineMax, TweenMax } from "gsap";
+import Square from "../Board/Square/Square";
 export default class X extends Sign {
-
     private readonly _delay: number;
-    
 
-    constructor(size: number, timeline: TimelineMax) {
-        super(size + size / 6, timeline);
+    constructor(timeline: TimelineMax, square: Square) {
+        super(timeline, square);
         this._delay = 0.03;
+        
     }
 
     public drawSign(): void {
-        this._feather.x = this.x;
-        this._feather.y = this.y - this._featherView.texture.height * this._featherScale;
+      
+        this._feather.x = this._square.x;
+        this._feather.y = this._square.y - (this._featherView.texture.height * this._featherScale);
         this._timeline.add(this._feather.arrive(this._featherScale));
         this.beginFill(this._color);
 
-        this.drawDiagonalLine(true, this.x, this.y, this.x + this._size, this.y + this._size);
-        this.drawDiagonalLine(false, this.x + this._size, this.y, this.x, this.y - this._size);
-        
+        this.drawDiagonalLine(
+            true,
+            this._square.x,
+            this._square.y,
+            this._square.x + this._size,
+            this._square.y + this._size
+        );
+        this.drawDiagonalLine(false, this._square.x + this._size, this._square.y, this._square.x, this._square.y - this._size);
+
         this.endFill();
         this._timeline.add(this._feather.fadeAway());
-      
     }
 
     private drawDiagonalLine(isDirectionRight: boolean, fromX: number, fromY: number, toX: number, toY: number): void {
@@ -32,7 +38,9 @@ export default class X extends Sign {
         let currentX = fromX;
         let currentY = fromY;
 
-        this._timeline.add(this._feather.goTo(currentX, currentY - (this._featherView.texture.height * this._featherScale), 1));
+        this._timeline.add(
+            this._feather.goTo(currentX, currentY - this._featherView.texture.height * this._featherScale, 1)
+        );
 
         for (let currentRate = 0; currentRate < rate; currentRate++) {
             this._timeline.add(

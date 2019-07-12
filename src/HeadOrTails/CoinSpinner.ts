@@ -6,6 +6,7 @@ export default class CoinSpinner extends PIXI.Container {
     private readonly _tail: PIXI.Sprite;
     private readonly _head: PIXI.Sprite;
     private readonly _coin: PIXI.Sprite;
+    private readonly _delay: number = 0.1;
 
     private readonly _multiplier: number;
     constructor(coin: PIXI.Sprite, head: PIXI.Sprite, tail: PIXI.Sprite, coinSize: number) {
@@ -13,14 +14,14 @@ export default class CoinSpinner extends PIXI.Container {
         this._coin = coin;
         this._tail = tail;
         this._head = head;
-        this._multiplier = Math.random() * 10 + 5;
+        this._multiplier = Math.floor(Math.random() * 10) + 5;
     }
 
     spin(): void {
         const tl = new TimelineMax();
         for (let spinNum = 0; spinNum < this._multiplier; spinNum++) {
             tl.add(
-                TweenMax.to(this._coin, 0.1, {
+                TweenMax.to(this._coin, this._delay, {
                     width: 0,
                 })
             );
@@ -30,17 +31,16 @@ export default class CoinSpinner extends PIXI.Container {
                 })
             );
             tl.add(
-                TweenMax.to(this._coin, 0.1, {
+                TweenMax.to(this._coin, this._delay, {
                     width: HeadOrTail.MAX_SIZE_COIN,
                 })
             );
-
             if (++spinNum == this._multiplier) {
                 break;
             }
 
             tl.add(
-                TweenMax.to(this._coin, 0.1, {
+                TweenMax.to(this._coin, this._delay, {
                     width: 0,
                 })
             );
@@ -52,7 +52,7 @@ export default class CoinSpinner extends PIXI.Container {
             );
 
             tl.add(
-                TweenMax.to(this._coin, 0.1, {
+                TweenMax.to(this._coin, this._delay, {
                     width: HeadOrTail.MAX_SIZE_COIN,
                 })
             );

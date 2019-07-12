@@ -1,10 +1,11 @@
 import * as PIXI from "pixi.js";
-import {  TimelineMax } from "gsap";
+import {  TimelineMax, TweenMax } from "gsap";
 import Scene from "../GameController/Scene";
 import Board from "./Board/Board";
 import PlayersInfo from "./PlayerInfo/PlayersInfo";
 
 //TODO The size of the names can change the size of the font
+//TODO onMethods to be in controller class
 export default class GameIntro extends Scene {
     private readonly _timeline: TimelineMax;
     private _board: Board;
@@ -15,6 +16,7 @@ export default class GameIntro extends Scene {
         super();
         this._app = app;
         this._app.stage.interactive = true;
+        //TODO Controller-a трябва да добавя childs към app
         this._app.stage.addChild(this);
         this._timeline = new TimelineMax();
         this._playersInfo = new PlayersInfo(this._timeline);
@@ -34,10 +36,11 @@ export default class GameIntro extends Scene {
         this._playersInfo.namePlayer2 = name;
     }
 
-    onStart(): void {
+    start(): void {
         this._playersInfo.insertNames();
         this.insertBoard();
         this._playersInfo.insertSigns();
+        this._timeline.add(()=> this.onExit());
     }
 
     private insertBoard() {
@@ -47,6 +50,6 @@ export default class GameIntro extends Scene {
     }
 
     onExit(): void {
-        this.emit("exit", this._playersInfo.player1, this._playersInfo.player2);
+        this.emit("exit", this._playersInfo, this._board.canvas);
     }
 }
