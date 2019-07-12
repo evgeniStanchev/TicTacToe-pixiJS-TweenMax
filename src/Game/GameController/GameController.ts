@@ -34,7 +34,7 @@ export default class GameController {
     private startHeadOrTail(namePlayer1: string, namePlayer2: string){
         this._headOrTail.namePlayer1 = namePlayer1;
         this._headOrTail.namePlayer2 = namePlayer2;
-        this._headOrTail.onStart();
+        this._headOrTail.start();
     }
 
 }

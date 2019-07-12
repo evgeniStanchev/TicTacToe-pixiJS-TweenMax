@@ -4,6 +4,9 @@ import Drawer from "./Lines/LineDrawer";
 import Scene from "../GameController/Scene";
 
 export default class GameIntro extends Scene {
+    start(): void {
+        throw new Error("Method not implemented.");
+    }
     private readonly _LINE_WIDTH: number = 4;
 
     private _containerBoard: PIXI.Container;
