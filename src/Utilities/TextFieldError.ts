@@ -9,6 +9,7 @@ export default class TextFieldError extends PIXI.Text {
             fontWeight: 'bold',
             fill: ['#FF0000']
         }));
+        //TODO outside
         this.x = x;
         this.y = y;
     }

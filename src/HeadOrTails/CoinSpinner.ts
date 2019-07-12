@@ -3,6 +3,7 @@ import { TweenMax, TimelineMax } from "gsap";
 import HeadOrTail from "./HeadOrTails";
 
 export default class CoinSpinner extends PIXI.Container {
+    
     private readonly _tail: PIXI.Sprite;
     private readonly _head: PIXI.Sprite;
     private readonly _coin: PIXI.Sprite;
@@ -11,6 +12,8 @@ export default class CoinSpinner extends PIXI.Container {
     private readonly _multiplier: number;
     constructor(coin: PIXI.Sprite, head: PIXI.Sprite, tail: PIXI.Sprite, coinSize: number) {
         super();
+
+        //TODO u know what
         this._coin = coin;
         this._tail = tail;
         this._head = head;

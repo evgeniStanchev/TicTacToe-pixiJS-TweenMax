@@ -17,6 +17,7 @@ export default class MyTextInput extends TextInput {
                 disabled: { fill: 0xdbdbdb, rounded: 12 },
             },
         });
+        //TODO Outside
         this.x = text.x - 20;
         this.y = text.y + 60;
     }

@@ -15,7 +15,6 @@ export default class GameIntro extends Scene {
     constructor(app: PIXI.Application) {
         super();
         this._app = app;
-        this._app.stage.interactive = true;
         //TODO Controller-a трябва да добавя childs към app
         this._app.stage.addChild(this);
         this._timeline = new TimelineMax();
