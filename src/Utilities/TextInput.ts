@@ -1,8 +1,7 @@
-import * as PIXI from "pixi.js";
 import TextInput from "pixi-text-input";
 
 export default class MyTextInput extends TextInput {
-    constructor(text: PIXI.BitmapText) {
+    constructor() {
         super({
             input: {
                 fontFamily: "Arial",
@@ -17,8 +16,5 @@ export default class MyTextInput extends TextInput {
                 disabled: { fill: 0xdbdbdb, rounded: 12 },
             },
         });
-        //TODO Outside
-        this.x = text.x - 20;
-        this.y = text.y + 60;
     }
 }

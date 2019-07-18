@@ -1,9 +1,10 @@
 import * as PIXI from "pixi.js";
-import GameController from "./Game/GameController/GameController";
+import GameController from "./GameController/GameController";
 
-class Main {
+export default class Main {
     public static readonly GAME_WIDTH: number = 800;
     public static readonly GAME_HEIGHT: number = 600;
+
     private _app: PIXI.Application;
 
     constructor() {
@@ -13,7 +14,7 @@ class Main {
     }
 
     private startLoadingAssets(): void {
-        const loader = new PIXI.Loader;
+        const loader = PIXI.Loader.shared;
         loader.add("desyrel", "assets/bitmap-font/" + "desyrel.xml");
         loader.add("feather", "../assets/images/feather.png");
         loader.add("head", "../assets/images/head.png");
@@ -28,8 +29,9 @@ class Main {
 
     private onAssetsLoaded(): void {
         this.createRenderer();
-      
-        new GameController(this._app);
+
+        const gameController = new GameController(this._app);
+        gameController.startApp();
     }
 
     private createRenderer(): void {
