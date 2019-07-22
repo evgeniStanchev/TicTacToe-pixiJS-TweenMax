@@ -1,5 +1,6 @@
-import { TimelineMax } from "gsap";
+import { TimelineMax, TweenMax } from "gsap";
 import PlayersInfoView from "../View/PlayersInfoView";
+import Player from "../../../../Player/Player";
 
 export default class PlayersInfoController {
     private _view: PlayersInfoView;
@@ -9,7 +10,7 @@ export default class PlayersInfoController {
         this._view.y = 35;
     }
 
-    get view(): PlayersInfoView{
+    get view(): PlayersInfoView {
         return this._view;
     }
 
@@ -27,5 +28,19 @@ export default class PlayersInfoController {
 
     public insertPlayers() {
         this._view.insertPlayers();
+    }
+
+    public growUp(player: Player, size: number) {
+        TweenMax.to(player, 0.5, {
+            width: player.width + size,
+            height: player.height + size,
+        });
+    }
+
+    public shrink(player: Player, size: number) {
+        TweenMax.to(player, 0.5, {
+            width: player.width - size,
+            height: player.height - size,
+        });
     }
 }

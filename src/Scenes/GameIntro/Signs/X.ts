@@ -3,15 +3,13 @@ import { TimelineMax, TweenMax } from "gsap";
 
 export default class X extends Sign {
     private readonly _delay: number;
-  
+
     constructor(timeline: TimelineMax, width: number, height: number) {
         super(timeline, width, height);
         this._delay = 0.003;
-       
     }
 
     public drawSign(): void {
-
         this._feather.x = this.x;
         this._feather.y = this.y - this._feather.view.texture.height * this._featherScale;
         this._timeline.add(this._feather.arrive(this._featherScale));
@@ -22,15 +20,14 @@ export default class X extends Sign {
         this.endFill();
 
         this._timeline.add(this._feather.fadeAway());
+        this._timeline.add(this.onComplete());
     }
 
     private drawDiagonalLine(isDirectionRight: boolean, fromX: number, fromY: number, toX: number, toY: number): void {
         const diffX = Math.abs(fromX - toX);
         const diffY = Math.abs(fromY - toY);
-        
-        const rate = diffX > diffY ? diffX : diffY;
 
-       
+        const rate = diffX > diffY ? diffX : diffY;
 
         let currentX = fromX;
         let currentY = fromY;

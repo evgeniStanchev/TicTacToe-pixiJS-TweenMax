@@ -2,9 +2,11 @@ import * as PIXI from "pixi.js";
 import X from "../../Signs/X";
 import { TimelineMax } from "gsap";
 import O from "../../Signs/O";
+import Sign from "../../Signs/Sign";
 
 export default class SignSlot extends PIXI.Graphics {
     private _isEmpty: boolean;
+    private _sign: Sign;
 
     constructor(height: number, width: number, color: number = 0x000000) {
         super();
@@ -18,20 +20,37 @@ export default class SignSlot extends PIXI.Graphics {
         return this._isEmpty;
     }
 
-    public _fill() {
-        this._isEmpty = false;
+    public get sign() : Sign {
+        return this._sign;
     }
 
     public drawSign(signType: string, timeline: TimelineMax) {
-        if (signType.toLowerCase() === "x") {
-            const sign = new X(timeline, this.width, this.height);
-            this.addChild(sign);
-            sign.drawSign();
+        switch (signType) {
+            case "x": {
+                this._sign = new X(timeline, this.width, this.height);
+                break;
+            }
+            case "o": {
+                this._sign = new O(timeline, this.width, this.height);
+                break;
+            }
+            default:
+                console.error("There is no such sign");
+                break;
         }
-        if (signType.toLowerCase() === "o") {
-            const sign = new O(timeline, this.width, this.height);
-            this.addChild(sign);
-            sign.drawSign();
-        }
+        this._sign.on("drawingCompleted", () => {
+            this.onComplete();
+        });
+        this.addChild(this._sign);
+        this._sign.drawSign();
+    }
+
+    
+
+    
+
+    private onComplete(): void {
+        this._isEmpty = false;
+        this.emit("drawingCompleted");
     }
 }

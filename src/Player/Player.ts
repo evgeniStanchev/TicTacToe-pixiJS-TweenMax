@@ -1,7 +1,7 @@
 import * as PIXI from "pixi.js";
 import { ALIGN } from "./ALIGN";
 import SignSlot from "../Scenes/GameIntro/Board/SignSlot/SignSlot";
-import { TimelineMax } from "gsap";
+import { TimelineMax, TweenMax } from "gsap";
 
 export default class Player extends PIXI.Container {
     public static readonly SLOT_SIZE: number = 40;
@@ -28,8 +28,12 @@ export default class Player extends PIXI.Container {
         this.addChild(this._signSlot);
     }
 
-    get name() {
-        return this.name;
+    get name(): string {
+        return this._name.text;
+    }
+
+    get bitmapName(): PIXI.BitmapText {
+        return this._name;
     }
 
     get sign(): string {
@@ -54,6 +58,8 @@ export default class Player extends PIXI.Container {
     public drawSign(timeline: TimelineMax) {
         this._signSlot.drawSign(this._sign, timeline);
     }
+
+   
 
     onAssetsLoaded() {
         this._name = new PIXI.BitmapText("", {

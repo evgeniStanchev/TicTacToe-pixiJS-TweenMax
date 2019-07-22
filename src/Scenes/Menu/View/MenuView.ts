@@ -158,4 +158,10 @@ export default class MenuView extends PIXI.Container {
         }
         return false;
     }
+
+    public removeInputs() {
+        const parent = this._inputPlayer1.htmlInput.parentNode;
+        parent.removeChild(this._inputPlayer1.htmlInput);
+        parent.removeChild(this._inputPlayer2.htmlInput);
+    }
 }

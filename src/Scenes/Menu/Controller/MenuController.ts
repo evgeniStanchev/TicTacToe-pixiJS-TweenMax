@@ -14,6 +14,7 @@ export default class MenuController extends PIXI.utils.EventEmitter {
     }
 
     onExit(namePlayer1: string, namePlayer2: string): void {
+        this._view.removeInputs();
         this.emit("exit", namePlayer1, namePlayer2);
     }
 

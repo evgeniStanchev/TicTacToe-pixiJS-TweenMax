@@ -20,7 +20,7 @@ export default class GameIntroController extends PIXI.utils.EventEmitter {
         this._view.createPlayersInfo(namePlayer1, namePlayer2);
         this._view.insertPlayers();
         this._view.insertBoard();
-        // this._view.insertSigns();
+        this._view.insertSigns();
         this._view.exit();
     }
 

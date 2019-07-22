@@ -24,6 +24,7 @@ export default class O extends Sign {
         this.drawCircleWithFeather();
         this.endFill();
         this._timeline.add(this._feather.fadeAway());
+        this._timeline.add(this.onComplete());
     }
 
     private drawCircleWithFeather(): void {

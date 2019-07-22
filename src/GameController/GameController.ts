@@ -39,24 +39,21 @@ export default class GameController {
     }
 
     private startGameIntro(firstPlayerName: string, secondPlayerName: string) {
-        this._app.stage.removeChild(this._headOrTail.view);
+        this._app.stage.removeChildren();
         this._gameIntro.start(firstPlayerName, secondPlayerName);
         this._app.stage.addChild(this._gameIntro.view);
     }
 
-    private startGameplay(playersInfo: PlayersInfoController, board : Board) {
+    private startGameplay(playersInfo: PlayersInfoController, board: Board) {
         //TODO its not working
         const defaultIcon = "url('../../../assets/images/feather.png'), auto";
         this._app.renderer.plugins.interaction.cursorStyles.default = defaultIcon;
         //
-        this._gameplay.player1 = playersInfo.player1;
-        this._gameplay.player2 = playersInfo.player2;
-        this._gameplay.board = board;
-        this._gameplay.start();
+        this._gameplay.start(playersInfo, board);
     }
 
     private startHeadOrTail(namePlayer1: string, namePlayer2: string) {
-        this._app.stage.removeChild(this._gameMenu.view);
+        this._app.stage.removeChildren();
         this._headOrTail.start(namePlayer1, namePlayer2);
         this._app.stage.addChild(this._headOrTail.view);
     }

@@ -1,6 +1,6 @@
 import * as PIXI from "pixi.js";
 import FeatherController from "../../../Feather/FeatherController";
-import { TimelineMax } from "gsap";
+import { TimelineMax, TweenMax } from "gsap";
 import FeatherView from "../../../Feather/FeatherView";
 
 export default abstract class Sign extends PIXI.Graphics {
@@ -26,6 +26,12 @@ export default abstract class Sign extends PIXI.Graphics {
         this._feather.view.height = 0;
         this._feather.view.width = 0;
         this.addChild(this._feather.view);
+    }
+
+    public onComplete(): TweenMax {
+        return TweenMax.delayedCall(0, () => {
+            this.emit("drawingCompleted");
+        });
     }
 
     abstract drawSign(): void;
