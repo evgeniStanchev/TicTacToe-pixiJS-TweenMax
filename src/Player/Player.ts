@@ -13,9 +13,8 @@ export default class Player extends PIXI.Container {
 
     constructor(sign: string, align: ALIGN) {
         super();
-        const loader = new PIXI.Loader();
-        loader.load(this.onAssetsLoaded.bind(this));
-
+      
+        this.createBitmapTexts();
         this._align = align;
         this._sign = sign;
 
@@ -59,9 +58,7 @@ export default class Player extends PIXI.Container {
         this._signSlot.drawSign(this._sign, timeline);
     }
 
-   
-
-    onAssetsLoaded() {
+    createBitmapTexts() {
         this._name = new PIXI.BitmapText("", {
             font: {
                 name: "Desyrel",

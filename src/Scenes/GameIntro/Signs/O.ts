@@ -1,6 +1,5 @@
 import Sign from "./Sign";
 import { TimelineMax, TweenMax } from "gsap";
-import Board from "../Board/Board";
 
 export default class O extends Sign {
     private readonly _delay: number;
@@ -9,7 +8,8 @@ export default class O extends Sign {
     private _radius: number;
 
     constructor(timeline: TimelineMax, width: number, height: number) {
-        super(timeline, width, height);
+        super(timeline, width, height, "o");
+        // this._delay = 0.03;
         this._delay = 0.03;
         this._radius = this._area.width / 2;
         this._currentX = this._radius - 4;
@@ -18,8 +18,15 @@ export default class O extends Sign {
 
     public drawSign(): void {
         this._feather.x = this._currentX;
-        this._feather.y = this._currentY - this._feather.view.texture.height * this._featherScale;
+        this._feather.y = this._radius + this._currentY - this._feather.view.texture.height * this._featherScale;
         this._timeline.add(this._feather.arrive(this._featherScale));
+        this._timeline.add(
+            this._feather.goTo(
+                this._currentX,
+                this._currentY - this._feather.view.texture.height * this._featherScale,
+                0.5
+            )
+        );
         this.beginFill(this._color);
         this.drawCircleWithFeather();
         this.endFill();

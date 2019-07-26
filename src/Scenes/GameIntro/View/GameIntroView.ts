@@ -34,7 +34,7 @@ export default class GameIntroView extends PIXI.Container {
         this.addChild(this._playersInfo.view);
     }
 
-    public exit(){
+    public exit() {
         this._timeline.add(() => this.onExit());
     }
 

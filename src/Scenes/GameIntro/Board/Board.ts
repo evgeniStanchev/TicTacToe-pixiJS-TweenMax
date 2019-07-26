@@ -5,6 +5,8 @@ import LinesDrawerController from "../Lines/Controller/LinesDrawerController";
 export default class Board extends PIXI.Graphics {
     public static readonly LINE_WIDTH: number = 4;
     public static readonly BACKGROUND_COLOR: number = 0xffffff;
+    private _rectWidth: number = 420;
+    private _rectHeight: number = 420;
 
     private _linesDrawer: LinesDrawerController;
 
@@ -13,7 +15,7 @@ export default class Board extends PIXI.Graphics {
         this.interactive = true;
         this._linesDrawer = new LinesDrawerController(timeline);
         this.beginFill(0xffffff);
-        this.drawRect(0, 0, 420, 420);
+        this.drawRect(0, 0, this._rectWidth, this._rectHeight);
         this.endFill();
     }
 

@@ -1,17 +1,18 @@
+import * as PIXI from "pixi.js";
 import Player from "../../../Player/Player";
 import Board from "../../GameIntro/Board/Board";
 import GameplayView from "../View/GameplayView";
 import PlayersInfoController from "../../GameIntro/PlayerInfo/Controller/PlayersInfoController";
 
-export default class GameplayController {
+export default class GameplayController extends PIXI.utils.EventEmitter {
     private _view: GameplayView;
     private _player1: Player;
     private _player2: Player;
     private _playersInfo: PlayersInfoController;
 
     constructor() {
+        super();
         this._view = new GameplayView();
-        this._view.on("changePlayer", this.changePlayer, this);
     }
 
     start(playersInfo: PlayersInfoController, board: Board): void {
@@ -24,6 +25,8 @@ export default class GameplayController {
         this._view.currentSign = playersInfo.player1.sign;
         this._view.fillArray();
         this._playersInfo.growUp(this._player1, GameplayView.CHANGING_SIZE);
+        this._view.on("changePlayer", this.changePlayer, this);
+        this._view.on("finished", this.onExit, this);
     }
 
     private changePlayer() {
@@ -36,7 +39,7 @@ export default class GameplayController {
         }
     }
 
-    onExit(): void {
-        throw new Error("Method not implemented.");
+    onExit(winner: string): void {
+        this.emit("exit", winner);
     }
 }

@@ -1,15 +1,17 @@
 import * as PIXI from "pixi.js";
 import SignSlot from "../../GameIntro/Board/SignSlot/SignSlot";
-import { TimelineMax } from "gsap";
+import { TimelineMax, TweenMax } from "gsap";
 import Player from "../../../Player/Player";
 import Board from "../../GameIntro/Board/Board";
-import Sign from "../../GameIntro/Signs/Sign";
+import FieldUtils from "../FieldUtils";
 
 export default class GameplayView extends PIXI.Container {
     public static readonly CHANGING_SIZE: number = 25;
     private readonly _field: SignSlot[][];
+    private readonly _utils: FieldUtils;
+    private _winningSlot: SignSlot[];
+    private _loosingSlot: SignSlot[];
     private _currentSign: string;
-    private readonly _filledSlots: Map<number, string>;
 
     private _timeline: TimelineMax;
     private _player1: Player;
@@ -19,8 +21,8 @@ export default class GameplayView extends PIXI.Container {
     constructor() {
         super();
         this._field = [];
-        this._filledSlots = new Map<number, string>();
         this._timeline = new TimelineMax();
+        this._utils = new FieldUtils(this._field);
     }
 
     public set player1(player: Player) {
@@ -65,60 +67,87 @@ export default class GameplayView extends PIXI.Container {
         const slot = event.currentTarget as SignSlot;
         slot.on("drawingCompleted", this.activateSlots, this);
         slot.drawSign(this._currentSign, this._timeline);
-
-        // this._filledSlots.set(this._field.indexOf(slot), this._currentSign);
-        if (!this.hasWinner()) {
-            if (this._currentSign === this._player1.sign) {
-                this.changePlayer(this._player2);
+        this._timeline.add(() => {
+            if (this._utils.isFieldFull()) {
+                this.announceDraw();
+            }
+            if (!this._utils.hasWinner()) {
+                if (this._currentSign === this._player1.sign) {
+                    this.changePlayer(this._player2);
+                } else {
+                    this.changePlayer(this._player1);
+                }
             } else {
-                this.changePlayer(this._player1);
+                this.announceWinner(this._currentSign);
             }
-        } else {
-            this.announceWinner(this._currentSign);
-        }
+        });
     }
 
-    private hasWinner(): boolean {
-        if (this._filledSlots.size <= 5) {
-            return false;
-        } else {
-            return this.hasLine() || this.hasDiagonal();
-        }
-    }
-
-    private hasDiagonal(): boolean {
-        return false;
-    }
-
-    private hasLine(): boolean {
+    private announceDraw(): void {
         for (let row = 0; row < 3; row++) {
-            this._field[row] = [];
-            if (
-                this._field[row][0].sign === this._field[row][1].sign &&
-                this._field[row][0].sign === this._field[row][2].sign
-            ) {
-                console.log("hey");
-                console.log("winner");
-                return true;
+            for (let col = 0; col < 3; col++) {
+                this._field[row][col].setLooserMask();
             }
         }
+        const timeline = new TimelineMax();
+        timeline.add(
+            TweenMax.to(this, 0, {
+                delay: 2,
+            })
+        );
+        timeline.add(() => {
+            this.emit("finished", null);
+        });
     }
 
     private announceWinner(sign: string) {
-        if (sign === this.player1.sign) {
-            console.log("Player one is winner");
-        } else if (sign === this.player2.sign) {
-            console.log("Player two is winner");
-        } else {
-            console.log("Draw!");
+        const timeline = new TimelineMax();
+        this._winningSlot = this._utils.winningSlot;
+        this._loosingSlot = this._utils.loosingSlot;
+
+        for (let index = 0; index < this._loosingSlot.length; index++) {
+            this._loosingSlot[index].setLooserMask();
         }
+        for (let index = 0; index < this._winningSlot.length; index++) {
+            this.setWinnerMask(this._winningSlot[index], timeline);
+        }
+        timeline.add(
+            TweenMax.to(this, 0, {
+                delay: 2,
+            })
+        );
+
+        timeline.add(() => {
+            if (sign === this._player1.sign) {
+                this.emit("finished", this._player1.name);
+            } else {
+                this.emit("finished", this._player2.name);
+            }
+        });
+    }
+
+    private setWinnerMask(slot: SignSlot, timeline: TimelineMax): void {
+        this._mask = new PIXI.Graphics();
+        this._mask.beginFill(0x000000);
+        this._mask.drawRect(0, 0, this.width, this.height);
+        this._mask.endFill();
+        timeline.add(
+            TweenMax.to(slot, 0, {
+                mask: this._mask,
+                delay: 1,
+            })
+        );
+        timeline.add(
+            TweenMax.to(slot, 0, {
+                mask: false,
+                delay: 0.5,
+            })
+        );
     }
 
     private changePlayer(player: Player) {
         this._currentSign = player.sign;
-        this._timeline.add(() => {
-            this.emit("changePlayer", player);
-        });
+        this.emit("changePlayer", player);
     }
 
     private activateSlots() {

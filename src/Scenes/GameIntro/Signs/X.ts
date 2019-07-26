@@ -5,13 +5,14 @@ export default class X extends Sign {
     private readonly _delay: number;
 
     constructor(timeline: TimelineMax, width: number, height: number) {
-        super(timeline, width, height);
+        super(timeline, width, height, "x");
+        // this._delay = 0.03;
         this._delay = 0.003;
     }
 
     public drawSign(): void {
-        this._feather.x = this.x;
-        this._feather.y = this.y - this._feather.view.texture.height * this._featherScale;
+        this._feather.x = this.width / 2 + this.x;
+        this._feather.y = this.height / 2 + this.y - this._feather.view.texture.height * this._featherScale;
         this._timeline.add(this._feather.arrive(this._featherScale));
 
         this.beginFill(this._color);

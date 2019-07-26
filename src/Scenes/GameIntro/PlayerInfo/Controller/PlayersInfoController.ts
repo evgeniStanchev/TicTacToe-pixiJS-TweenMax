@@ -4,6 +4,8 @@ import Player from "../../../../Player/Player";
 
 export default class PlayersInfoController {
     private _view: PlayersInfoView;
+    private _delayGrowUp: number = 0.5;
+    private _delayShrink: number = 0.5;
 
     constructor(timeline: TimelineMax, namePlayer1: string, namePlayer2: string) {
         this._view = new PlayersInfoView(timeline, namePlayer1, namePlayer2);
@@ -31,14 +33,14 @@ export default class PlayersInfoController {
     }
 
     public growUp(player: Player, size: number) {
-        TweenMax.to(player, 0.5, {
+        TweenMax.to(player, this._delayGrowUp, {
             width: player.width + size,
             height: player.height + size,
         });
     }
 
     public shrink(player: Player, size: number) {
-        TweenMax.to(player, 0.5, {
+        TweenMax.to(player, this._delayShrink, {
             width: player.width - size,
             height: player.height - size,
         });
