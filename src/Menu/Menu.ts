@@ -5,7 +5,7 @@ import TextFieldError from "../Utilities/TextFieldError";
 import MyTextInput from "../Utilities/TextInput";
 import Scene from "../Game/GameController/Scene";
 
-export default class GameMenu extends Scene {
+export default class Menu extends Scene {
     private readonly _app: PIXI.Application;
 
     private _playButton: PlayButton;
